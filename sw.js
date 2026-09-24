@@ -1,0 +1,101 @@
+/* Service Worker — Guardiões do Lavrado (versão adulta)
+   Guarda o folder inteiro no aparelho no primeiro acesso com internet,
+   para que os acessos seguintes funcionem mesmo offline.
+   Para publicar uma atualização, troque a versão do CACHE (ex.: guardioes-lavrado-adulto-v2). */
+
+const CACHE = 'guardioes-lavrado-adulto-v1';
+
+/* Tudo que o folder precisa para abrir sem internet (dados dos gráficos embutidos no index.html; fotos na pasta img/).
+   Caminhos relativos: funcionam em qualquer subpasta do GitHub Pages. */
+const ESSENCIAIS = [
+  './',
+  './index.html',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png',
+  './apple-touch-icon.png',
+  './img/brasao.png',
+  './img/combustivel.jpg',
+  './img/desmate.jpg',
+  './img/dof_blitz.jpg',
+  './img/dof_check.jpg',
+  './img/edu_blitz.jpg',
+  './img/edu_comun.jpg',
+  './img/edu_escola.jpg',
+  './img/equipe.jpg',
+  './img/f_bichopau.jpg',
+  './img/f_cobra.jpg',
+  './img/f_felino.jpg',
+  './img/f_macaco.jpg',
+  './img/f_papagaio.jpg',
+  './img/f_perereca.jpg',
+  './img/f_quelonio.jpg',
+  './img/f_tamandua.jpg',
+  './img/lavrado_agua.jpg',
+  './img/lavrado_bg.jpg',
+  './img/tep_medida.jpg',
+  './img/tep_obra.jpg',
+  './img/toras_eq.jpg'
+];
+
+/* Instalação: baixa e guarda os recursos essenciais (sem usar cópias antigas do navegador). */
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE)
+      .then(cache => cache.addAll(ESSENCIAIS.map(u => new Request(u, { cache: 'reload' }))))
+      .then(() => self.skipWaiting())
+  );
+});
+
+/* Ativação: remove versões antigas do cache. */
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys()
+      .then(nomes => Promise.all(nomes.map(n => n === CACHE ? null : caches.delete(n))))
+      .then(() => self.clients.claim())
+  );
+});
+
+/* Mensagem da página para forçar atualização imediata. */
+self.addEventListener('message', event => {
+  if (event.data === 'skipWaiting') self.skipWaiting();
+});
+
+self.addEventListener('fetch', event => {
+  const req = event.request;
+
+  // Só interessa GET do próprio site.
+  if (req.method !== 'GET') return;
+  if (new URL(req.url).origin !== self.location.origin) return;
+
+  // Navegação (abrir o folder): tenta a rede, cai para o cache quando offline.
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req)
+        .then(res => {
+          if (res && res.ok) {
+            const copia = res.clone();
+            caches.open(CACHE).then(c => c.put('./index.html', copia));
+          }
+          return res;
+        })
+        .catch(() => caches.match('./index.html', { ignoreSearch: true })
+          .then(r => r || caches.match('./')))
+    );
+    return;
+  }
+
+  // Demais recursos: cache primeiro (resposta instantânea e offline garantido).
+  event.respondWith(
+    caches.match(req, { ignoreSearch: true }).then(cacheado => {
+      if (cacheado) return cacheado;
+      return fetch(req).then(res => {
+        if (res && res.status === 200 && res.type === 'basic') {
+          const copia = res.clone();
+          caches.open(CACHE).then(c => c.put(req, copia));
+        }
+        return res;
+      });
+    })
+  );
+});

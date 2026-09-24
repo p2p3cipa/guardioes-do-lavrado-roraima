@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guardiões do Lavrado — CIPA Monte Roraima</title>
+<meta name="description" content="Conscientização ambiental e repressão a crimes ecossistêmicos — o que a lei protege, o que estamos perdendo e o que cada um de nós pode fazer. CIPA Monte Roraima / PMRR.">
+<meta name="theme-color" content="#1B4D2E">
+<meta name="color-scheme" content="light">
+
+<!-- PWA / funcionamento offline -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Guardiões RR">
+<link rel="preload" as="image" href="img/brasao.png">
+
+<style>
+/* =====================================================================
+   GUARDIÕES DO LAVRADO — folder digital adulto
+   CIPA Monte Roraima / PMRR · versão mobile fiel à apresentação original
+   ===================================================================== */
+:root{
+  --g0:#0B2E1F; --g1:#1B4D2E; --g2:#2E7D4F; --g3:#2EA76A; --g4:#7CE0A0; --gcl:#EAF5EE;
+  --off:#F5F8F5; --tinta:#0B2E1F; --tinta2:#3F574A; --tinta3:#6B8175; --linha:#DCE8E0;
+  --ouro:#D9A53A; --ouro-cl:#FBF3DF; --ouro-esc:#8A6412;
+  --azul:#2F6FB8; --azul-cl:#E8F0FA; --azul-esc:#173A66;
+  --alerta:#C9503F; --alerta-cl:#FBECE8; --alerta-esc:#8E2E22;
+  --r:16px;
+  --sombra:0 1px 0 rgba(11,46,31,.05),0 10px 24px -16px rgba(11,46,31,.35);
+  --fonte:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --nav-h:62px;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:14px;overflow-x:hidden}
+body{margin:0;background:#fff;color:var(--tinta);font-family:var(--fonte);font-size:17px;line-height:1.55;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+main{overflow:hidden}
+svg,img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.015em;line-height:1.15}
+p{margin:0}
+:focus-visible{outline:3px solid var(--ouro);outline-offset:3px;border-radius:8px}
+.num{font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 20px;border:0;border-radius:12px;background:var(--g1);color:#fff;
+  font-weight:700;font-size:16.5px;cursor:pointer;text-decoration:none;text-align:center;transition:background .15s,transform .1s;touch-action:manipulation}
+.btn:active{transform:translateY(1px)}
+.btn.claro{background:#fff;color:var(--g1);border:1.5px solid var(--linha)}
+.btn.ouro{background:var(--ouro);color:var(--g0)}
+.btn.alerta{background:var(--alerta)}
+.btn.azul{background:var(--azul)}
+.btn.largo{width:100%}
+.btn.peq{min-height:46px;padding:8px 12px;font-size:15px}
+
+/* ---------- estrutura ---------- */
+.sec{position:relative;padding:48px 18px 52px;background:var(--bg,#fff);border-top:1px solid var(--linha)}
+.sec.off{--bg:var(--off)}
+.in{max-width:640px;margin:0 auto}
+.rot{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g2)}
+.rot::before{content:"";width:18px;height:2px;background:currentColor;flex:none}
+.rot.alerta{color:var(--alerta)} .rot.azul{color:var(--azul)} .rot.ouro{color:var(--ouro-esc)}
+.titulo{font-size:clamp(23px,6.6vw,32px);margin:10px 0 12px;color:var(--g0)}
+.titulo .r{color:var(--alerta)} .titulo .o{color:var(--ouro-esc)} .titulo .v{color:var(--g2)}
+.resumo{font-size:clamp(16.5px,4.4vw,18.5px);color:var(--tinta2)}
+.resumo strong{color:var(--g0)}
+.resumo b.v{color:var(--g2)} .resumo b.o{color:var(--ouro-esc)}
+.corpo{margin-top:14px;font-size:16px;color:var(--tinta2)}
+.corpo strong{color:var(--g0)}
+.cartao{background:#fff;border:1px solid var(--linha);border-radius:var(--r);box-shadow:var(--sombra);color:var(--tinta)}
+.chamada{margin-top:18px;padding:14px 16px;border-left:4px solid var(--ouro);background:var(--ouro-cl);border-radius:0 12px 12px 0;font-weight:600;font-size:16.5px;color:var(--g0);line-height:1.5}
+.chamada.alerta{border-color:var(--alerta);background:var(--alerta-cl)}
+.chamada.verde{border-color:var(--g3);background:var(--gcl)}
+.chamada.azul{border-color:var(--azul);background:var(--azul-cl)}
+.chamada small{display:block;font-weight:800;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta3);margin-bottom:4px}
+.frase{margin-top:22px;font-size:clamp(20px,5.8vw,26px);font-weight:800;line-height:1.25;color:var(--g1);letter-spacing:-.01em}
+.frase .o{color:var(--ouro-esc)} .frase .r{color:var(--alerta)}
+.selos{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.datado{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:8px;background:var(--ouro-cl);border:1px solid #EBD39B;color:var(--ouro-esc);font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;line-height:1.3}
+.datado.est{background:#fff;border:1.5px dashed var(--alerta);color:var(--alerta-esc)}
+.datado.caso{background:var(--gcl);border-color:#BFE0CB;color:var(--g1)}
+.datado.serie{background:var(--azul-cl);border-color:#C5D8EF;color:var(--azul-esc)}
+.datado.lei{background:var(--ouro-cl);border-color:#EBD39B;color:var(--ouro-esc)}
+.nota{margin-top:8px;font-size:13px;color:var(--tinta3);line-height:1.45}
+.fontes{font-size:12.5px;color:var(--tinta3);line-height:1.5}
+.fontes b{color:var(--tinta2)}
+.foto{margin:18px 0 0;border-radius:var(--r);overflow:hidden;background:var(--gcl)}
+.foto img{width:100%;height:auto}
+.foto figcaption{font-size:12.5px;color:var(--tinta3);padding:7px 10px;background:#fff;border:1px solid var(--linha);border-top:0;border-radius:0 0 var(--r) var(--r)}
+.foto figcaption b{color:var(--g1)}
+.fotos2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.fotos2 .foto{margin:0}
+.fotos2 .foto img{aspect-ratio:4/3;object-fit:cover}
+
+/* camada 2 */
+.camada2{display:grid;gap:8px;margin-top:18px}
+.mais{background:#fff;border:1px solid var(--linha);border-radius:14px;overflow:hidden;color:var(--tinta)}
+.mais summary{cursor:pointer;list-style:none;padding:12px 14px;font-weight:800;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--g1);display:flex;align-items:center;gap:8px;min-height:48px}
+.mais summary::-webkit-details-marker{display:none}
+.mais summary::after{content:"";margin-left:auto;flex:none;width:9px;height:9px;border-right:2px solid var(--g2);border-bottom:2px solid var(--g2);transform:rotate(45deg);transition:transform .2s}
+.mais[open] summary::after{transform:rotate(-135deg)}
+.mais .tec{padding:0 14px 14px;font-size:15px;line-height:1.55;color:var(--tinta2)}
+.mais .tec p{color:var(--tinta2)}
+.mais .tec p+p{margin-top:8px}
+.mais .tec ul{margin:6px 0;padding-left:18px}
+.mais .tec li{margin:4px 0}
+.mais .tec strong{color:var(--g0)}
+.mais .tec p.fontes{color:var(--tinta3)}
+.mais.lei summary{color:var(--ouro-esc)}
+.mais.fonte summary{color:var(--g0)}
+
+/* entrada ao rolar */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.js .rv.on{opacity:1;transform:none}
+
+/* ---------- progresso e navegação ---------- */
+.prog{position:fixed;left:0;right:0;top:0;height:4px;z-index:40;pointer-events:none;background:rgba(27,77,46,.1)}
+.prog i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--g2),var(--g4))}
+.nav{position:fixed;z-index:45;left:50%;bottom:calc(8px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(calc(100% - 12px),520px);
+  display:grid;grid-template-columns:repeat(5,1fr);gap:2px;padding:4px;background:rgba(255,255,255,.97);border-radius:16px;
+  box-shadow:0 8px 26px -10px rgba(11,46,31,.5),0 0 0 1px var(--linha);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:50px;border-radius:12px;text-decoration:none;color:var(--tinta2);font-size:10.5px;font-weight:700;line-height:1.05;text-align:center;padding:0 1px}
+.nav a svg{width:20px;height:20px}
+.nav a[aria-current="true"]{background:var(--g1);color:#fff}
+
+/* ---------- CAPA ---------- */
+.capa{position:relative;min-height:min(calc(100vh - var(--nav-h) - 10px),880px);min-height:min(calc(100svh - var(--nav-h) - 10px),880px);display:flex;flex-direction:column;
+  background:radial-gradient(120% 80% at 50% 0%,#245E3B 0%,#1B4D2E 45%,#0B2E1F 100%);color:#fff;overflow:hidden}
+.capa .buriti{position:absolute;right:-36px;bottom:40px;width:230px;opacity:.09;pointer-events:none}
+.capa-topo{position:relative;display:flex;padding:calc(14px + env(safe-area-inset-top)) 18px 0}
+.marca{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.06em;line-height:1.3;color:#D6EBDD;text-transform:uppercase}
+.brasao{display:inline-block;width:36px;height:38px;flex:none;background:url("img/brasao.png") center/contain no-repeat}
+.capa-txt{position:relative;padding:22px 18px 0;max-width:640px;margin:0 auto;width:100%}
+.capa-grid{display:grid;grid-template-columns:1fr 96px;gap:12px;align-items:start}
+.capa .brasao.g{width:96px;height:103px;filter:drop-shadow(0 12px 22px rgba(0,0,0,.45))}
+.capa .rot{color:var(--g4)}
+.capa h1{font-size:clamp(38px,11.4vw,60px);line-height:1.0;margin-top:12px}
+.capa h1 span{display:block;color:var(--g4)}
+.capa .resumo{color:#D6EBDD;margin-top:16px;max-width:40ch}
+.refs{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.refs span{font-size:12px;font-weight:700;padding:5px 9px;border-radius:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#EAF5EE}
+.refs span.v{border-color:rgba(124,224,160,.55);color:#BFF0D0}
+.refs span.l{border-color:rgba(217,165,58,.6);color:#F4D58F}
+.capa .acoes,.final .acoes{display:grid;gap:10px;margin-top:22px;max-width:420px}
+.capa .btn.claro,.final .btn.claro{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.3)}
+.status{display:none;font-size:13.5px;font-weight:800;letter-spacing:.02em;color:var(--g1);background:#fff;padding:6px 11px;border-radius:8px;justify-self:start}
+.status.on{display:inline-block}
+.status.esperando{color:#7A5A00}
+.nota-off{font-size:12.5px;color:#B8D9C5}
+.salvo .nota-off{display:none}
+.lema{margin-top:auto;padding:24px 18px 20px;text-align:center;font-size:12.5px;letter-spacing:.14em;color:#A8CDB6}
+.lema b{display:block;font-size:14px;color:var(--ouro);letter-spacing:.18em}
+
+/* ---------- aberturas com foto ---------- */
+.abertura{position:relative;background:var(--g0);color:#fff}
+.abertura .ft{position:relative}
+.abertura .ft img{width:100%;height:auto;opacity:.9}
+.abertura .ft .tag{position:absolute;right:10px;bottom:10px;max-width:calc(100% - 20px);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(11,46,31,.8);color:#fff;padding:4px 9px;border-radius:999px}
+.abertura .sobre{padding:24px 18px 34px;max-width:640px;margin:0 auto}
+.abertura h2{font-size:clamp(25px,7vw,34px);line-height:1.14}
+.abertura h2 .apag{color:#9CB9A7}
+.abertura h2 em{font-style:normal;color:var(--ouro)}
+.abertura h2 .v{color:var(--g4)}
+.abertura p{margin-top:14px;color:#D6EBDD;font-size:16.5px}
+.abertura p strong{color:#fff}
+.abertura .rot{color:var(--g4)}
+.abertura .camada2 .mais{border-color:transparent}
+.ambientes{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.ambientes span{font-size:13.5px;font-weight:700;padding:6px 11px;border-radius:999px;background:rgba(124,224,160,.12);border:1px solid rgba(124,224,160,.35);color:#CFF3DC}
+
+/* ---------- divisor de parte ---------- */
+.parte{padding:34px 18px;background:var(--g0);color:#fff}
+.parte .in{display:flex;align-items:center;gap:16px}
+.parte .n{font-size:46px;font-weight:800;color:var(--c,var(--g4));line-height:1;min-width:52px;font-family:Georgia,"Times New Roman",serif}
+.parte small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A8CDB6;font-weight:700}
+.parte h2{font-size:clamp(24px,6.6vw,30px)}
+.parte p{font-size:14.5px;color:#BFD8C8;margin-top:4px}
+
+/* ---------- roteiro ---------- */
+.roteiro{display:grid;gap:10px;margin-top:18px}
+.etapa{width:100%;text-align:left;padding:14px;cursor:pointer;display:grid;grid-template-columns:48px 1fr 18px;gap:2px 12px;align-items:center;touch-action:manipulation}
+.etapa .n{grid-row:span 2;width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:18px;color:#fff;background:var(--cor);font-family:Georgia,"Times New Roman",serif}
+.etapa b{font-size:17px}
+.etapa small{font-size:14px;color:var(--tinta2);grid-column:2;line-height:1.4}
+.etapa .seta{grid-row:1/span 2;grid-column:3;width:9px;height:9px;border-right:2px solid var(--g2);border-bottom:2px solid var(--g2);transform:rotate(45deg);transition:transform .2s}
+.etapa .det{grid-column:1/-1;display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--linha)}
+.etapa .det ul{margin:0;padding-left:18px;font-size:14.5px;color:var(--tinta2)}
+.etapa[aria-expanded="true"] .det{display:block}
+.etapa[aria-expanded="true"] .seta{transform:rotate(-135deg)}
+.ir{display:inline-flex;align-items:center;min-height:40px;margin-top:4px;font-size:14.5px;font-weight:700;color:var(--g1);text-decoration:none}
+
+/* ---------- carrossel ---------- */
+.carr{margin-top:18px}
+.carr-trilho{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:2px 2px 10px;margin:0 -2px}
+.carr-trilho::-webkit-scrollbar{display:none}
+.carr-item{flex:0 0 86%;scroll-snap-align:start;min-width:0}
+.carr-item.cheio{flex-basis:100%}
+.carr-ctl{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px}
+.carr-ctl button{width:46px;height:46px;border-radius:12px;border:1.5px solid var(--linha);background:#fff;color:var(--g1);font-size:22px;font-weight:800;line-height:1;cursor:pointer;display:grid;place-items:center}
+.carr-ctl button:disabled{opacity:.35;cursor:default}
+.pontos{display:flex;gap:6px;align-items:center}
+.pontos i{width:7px;height:7px;border-radius:50%;background:#C9D8CF;transition:all .2s}
+.pontos i.on{width:20px;border-radius:4px;background:var(--g2)}
+.carr-cont{font-size:12.5px;font-weight:800;letter-spacing:.08em;color:var(--tinta3)}
+
+/* cartão de número */
+.ncard{height:100%;padding:18px 16px 16px;border-top:5px solid var(--cor,var(--g3))}
+.ncard small{display:block;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--cor2,var(--g2))}
+.ncard .n{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 6px;margin-top:8px;font-size:clamp(38px,11vw,52px);font-weight:800;line-height:1;color:var(--g0);letter-spacing:-.02em}
+.ncard .n u{text-decoration:none;font-size:.36em;font-weight:700;color:var(--tinta3);letter-spacing:0}
+.ncard p{font-size:15px;color:var(--tinta2);margin-top:10px;line-height:1.45}
+
+/* espécies */
+.esp{height:100%;padding:18px 16px}
+.esp .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--gcl)}
+.esp h3{font-size:24px;margin-top:14px;color:var(--cor)}
+.esp i{display:block;font-size:14px;color:var(--tinta3);margin-top:2px}
+.esp p{font-size:15.5px;color:var(--tinta2);margin-top:12px;line-height:1.5}
+
+/* galeria documental */
+.doc{margin:0;border-radius:var(--r);overflow:hidden;background:var(--g0)}
+.doc img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.doc.paisagem img{aspect-ratio:4/3}
+.doc figcaption{padding:10px 12px;background:#fff;border:1px solid var(--linha);border-top:0;border-radius:0 0 var(--r) var(--r);font-size:14px;font-weight:700;color:var(--g0);line-height:1.35}
+.doc figcaption small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta3);margin-top:2px}
+
+/* ---------- gráficos ---------- */
+.grafico{margin-top:18px;padding:16px 14px 14px}
+.grafico h3{font-size:15px;color:var(--g0);line-height:1.35}
+.grafico .sub{font-size:13px;color:var(--tinta3);margin-top:2px}
+.viz{width:100%;height:auto;margin-top:10px}
+.viz text{font-family:var(--fonte)}
+.cobertura{display:flex;height:34px;border-radius:9px;overflow:hidden;margin-top:12px;background:#EEF3F0}
+.cobertura i{display:block;height:100%;width:0;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.on .cobertura i{width:var(--w)}
+.cob-leg{display:grid;grid-template-columns:72fr 28fr;gap:8px;margin-top:8px}
+.cob-leg b{display:block;font-size:22px;font-weight:800;line-height:1.1}
+.cob-leg small{display:block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta3);line-height:1.3}
+.barras{display:grid;gap:7px;margin-top:12px}
+.barras .grupo{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta3);margin-top:6px}
+.barra{display:grid;grid-template-columns:var(--lw,104px) 1fr;gap:8px;align-items:center}
+.barra > span{font-size:13.5px;color:var(--g0);font-weight:600;line-height:1.2}
+.barra .tr{position:relative;height:22px;border-radius:6px;background:#EEF3F0}
+.barra .tr i{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:var(--c);width:0;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.on .barra .tr i{width:var(--w)}
+.barra .tr em{position:absolute;top:0;line-height:22px;font-style:normal;font-size:12.5px;font-weight:800;color:var(--g0);left:calc(var(--w) + 6px);white-space:nowrap}
+.barra.dest > span{color:var(--ouro-esc);font-weight:800}
+.barra.dest .tr em{color:var(--ouro-esc)}
+.info-toque{margin-top:8px;min-height:44px;padding:10px 12px;border-radius:10px;background:var(--off);font-size:14px;color:var(--tinta2);line-height:1.4}
+.info-toque b{color:var(--g0)}
+.col-alvo{cursor:pointer}
+.col-alvo:focus{outline:none}
+.col-alvo:focus-visible rect.bg{stroke:var(--ouro);stroke-width:2}
+.col-cresce{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.on .col-cresce{transform:none}
+.arco-anim{transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)}
+.linha-anim{transition:stroke-dashoffset 1.4s cubic-bezier(.65,0,.35,1)}
+.waffles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.waffle{padding:14px 10px 12px;text-align:center}
+.waffle svg{max-width:148px;margin:0 auto}
+.waffle .p{display:block;font-size:clamp(32px,9.6vw,44px);font-weight:800;line-height:1;margin-top:10px;color:var(--c)}
+.waffle small{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta3);margin-top:5px;line-height:1.3}
+.waffle p{font-size:13.5px;color:var(--tinta2);margin-top:8px;text-align:left;line-height:1.45}
+
+/* número herói */
+.heroi{margin-top:18px;padding:20px 16px;text-align:center;border-radius:var(--r);background:var(--hb,var(--ouro-cl));border:1px solid var(--hl,#EBD39B)}
+.heroi small{display:block;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta3)}
+.heroi .n{display:block;font-size:clamp(40px,12.5vw,60px);font-weight:800;color:var(--hc,var(--ouro-esc));line-height:1.05;margin-top:6px;letter-spacing:-.02em}
+.heroi p{font-size:15px;color:var(--tinta2);margin-top:8px}
+.heroi p strong{color:var(--g0)}
+
+/* ações do tráfico */
+.nao{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:6px}
+.nao li{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:var(--alerta-cl);font-weight:800;font-size:15.5px;letter-spacing:.02em;color:var(--alerta-esc)}
+.nao li::before{content:"✕";flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:var(--alerta);color:#fff;font-size:13px}
+
+/* ambientes do lavrado */
+.lista-amb{display:grid;gap:8px;margin-top:16px}
+.amb summary{display:flex;align-items:center;gap:12px;min-height:56px;padding:10px 14px;cursor:pointer;list-style:none;font-weight:700;font-size:16px;color:var(--g0)}
+.amb summary::-webkit-details-marker{display:none}
+.amb summary::before{content:"";flex:none;width:9px;height:9px;border-radius:2px;background:var(--g3);transform:rotate(45deg)}
+.amb summary::after{content:"";margin-left:auto;flex:none;width:9px;height:9px;border-right:2px solid var(--g2);border-bottom:2px solid var(--g2);transform:rotate(45deg);transition:transform .2s}
+.amb[open] summary::after{transform:rotate(-135deg)}
+.amb p{padding:0 14px 14px 35px;font-size:15px;color:var(--tinta2)}
+
+/* contadores da biodiversidade */
+.contas{display:grid;gap:2px;margin-top:18px}
+.conta{display:grid;gap:4px;padding:16px 4px;border-bottom:1px solid var(--linha)}
+.conta:last-child{border-bottom:0}
+.conta .n{font-size:clamp(38px,11.5vw,52px);font-weight:800;line-height:1;color:var(--cor);letter-spacing:-.02em}
+.conta b{margin-top:4px;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g0)}
+.conta p{font-size:14.5px;color:var(--tinta2);line-height:1.4}
+
+/* lei */
+.citacao{margin-top:18px;padding:20px 18px;border-left:5px solid var(--ouro)}
+.citacao q{display:block;quotes:"“" "”";font-size:clamp(18px,5vw,21px);line-height:1.5;font-weight:600;color:var(--g0);font-family:Georgia,"Times New Roman",serif}
+.citacao q mark{background:none;color:var(--ouro-esc);font-weight:800}
+.citacao q strong{background:linear-gradient(transparent 62%,#F6E3B5 62%)}
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px}
+.tres div{padding:12px 6px;border-radius:12px;background:var(--alerta-cl);text-align:center}
+.tres b{display:block;font-size:14px;color:var(--alerta-esc);line-height:1.2}
+.tres small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta3);margin-top:4px}
+.bloco{margin-top:18px;padding:16px}
+.bloco .ref{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--ouro-cl);color:var(--ouro-esc)}
+.bloco .ref.v{background:var(--gcl);color:var(--g1)}
+.bloco .ref.r{background:var(--alerta-cl);color:var(--alerta-esc)}
+.bloco p{font-size:15.5px;color:var(--tinta2);margin-top:10px}
+.bloco p strong{color:var(--g0)}
+.artigos{display:grid;gap:10px;margin-top:18px}
+.artigo{padding:14px 14px 6px;border-left:5px solid var(--ouro)}
+.artigo .ref{font-size:12.5px;font-weight:800;letter-spacing:.06em;color:var(--ouro-esc);text-transform:uppercase}
+.artigo > p{font-size:16px;color:var(--g0);margin-top:6px;line-height:1.45}
+.artigo > p strong{color:var(--g0);background:linear-gradient(transparent 62%,#F6E3B5 62%)}
+.artigo details{margin-top:6px;border-top:1px solid var(--linha)}
+.artigo summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;min-height:46px;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--g1)}
+.artigo summary::-webkit-details-marker{display:none}
+.artigo summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid var(--g2);border-bottom:2px solid var(--g2);transform:rotate(45deg);transition:transform .2s}
+.artigo details[open] summary::after{transform:rotate(-135deg)}
+.artigo dl{margin:0 0 10px;display:grid;gap:8px}
+.artigo dt{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta3)}
+.artigo dd{margin:2px 0 0;font-size:15px;font-weight:700;line-height:1.4}
+.artigo dd.pena{color:var(--alerta-esc)}
+.artigo dd.multa{color:var(--ouro-esc)}
+
+/* APP × Reserva Legal */
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.duas div{padding:14px 12px;border-radius:var(--r);border-top:5px solid var(--c)}
+.duas b{display:block;font-size:17px;color:var(--c2)}
+.duas small{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta3);margin-top:2px}
+.duas p{font-size:14px;color:var(--tinta2);margin-top:6px;line-height:1.4}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:var(--off);border:1px solid var(--linha);border-radius:12px;margin-top:18px}
+.tabs button{min-height:44px;padding:6px 10px;border:0;border-radius:9px;background:none;font-weight:800;font-size:14.5px;color:var(--tinta2);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--g1);color:#fff}
+.painel-tab{margin-top:10px;padding:16px 14px}
+.painel-tab[hidden]{display:none}
+.painel-tab h3{font-size:19px}
+.painel-tab > p{font-size:15.5px;color:var(--tinta2);margin-top:8px}
+.painel-tab > p strong{color:var(--g0)}
+.car{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:8px 12px;border-radius:10px;background:var(--ouro-cl);font-size:14.5px;font-weight:700;color:var(--g0)}
+
+/* DOF */
+.check{list-style:none;padding:0;margin:12px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.check li{display:flex;align-items:flex-start;gap:8px;padding:10px;border-radius:10px;background:var(--gcl);font-size:14px;font-weight:600;line-height:1.3;color:var(--g0)}
+.check li::before{content:"✓";flex:none;font-weight:800;color:var(--g2)}
+.sub3{font-size:17px;margin-top:22px;color:var(--g0)}
+
+/* produtos perigosos */
+.cats{display:grid;gap:8px;margin-top:16px}
+.cat{padding:12px 14px;border-left:5px solid var(--c)}
+.cat b{font-size:17px;color:var(--c2,var(--c))}
+.cat p{font-size:14.5px;color:var(--tinta2);margin-top:2px;line-height:1.4}
+.cat small{display:inline-block;margin-top:6px;font-size:12px;font-weight:800;letter-spacing:.04em;padding:3px 8px;border-radius:6px;background:var(--off);color:var(--tinta2)}
+
+/* Tepequém */
+.medida{display:grid;grid-template-columns:130px 1fr;gap:14px;align-items:center;margin-top:18px;padding:14px}
+.medida p{font-size:15px;color:var(--tinta2)}
+.medida p strong{color:var(--g0)}
+.sancoes{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:8px}
+.sancoes li{display:flex;align-items:center;gap:12px;padding:10px 12px;font-weight:700;font-size:16px}
+.sancoes li b{flex:none;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:var(--g2);color:#fff;font-size:14px}
+
+/* multas */
+.multa-bar{position:relative;height:46px;border-radius:10px;background:#EEF3F0;border:1px solid var(--linha);margin-top:12px;overflow:hidden}
+.multa-bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,#F2CC70,var(--ouro));transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.on .multa-bar i{width:15.5%}
+.multa-leg{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:12.5px;font-weight:700;color:var(--tinta2)}
+.multa-leg span{display:inline-flex;align-items:center;gap:6px}
+.multa-leg i{width:11px;height:11px;border-radius:3px;background:var(--ouro)}
+.multa-leg i.n{background:#EEF3F0;border:1px solid #C9D8CF}
+.total{font-size:clamp(26px,7.6vw,34px);font-weight:800;color:var(--g0);margin-top:6px;line-height:1.1}
+
+/* atitudes */
+.atitudes{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+.atitudes li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px;align-items:start}
+.atitudes .n{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--g2);font-size:17px}
+.atitudes li.o .n{background:var(--ouro);color:var(--g0)}
+.atitudes b{display:block;font-size:17px}
+.atitudes p{font-size:15px;color:var(--tinta2);margin-top:2px}
+
+/* canais */
+.canais{display:grid;grid-template-columns:1fr;gap:10px;margin-top:18px;text-align:center}
+.canal{padding:16px 14px;border-radius:var(--r)}
+.canal small{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta3)}
+.canal .n{font-size:clamp(34px,10.5vw,50px);font-weight:800;color:var(--g1);line-height:1.1;word-break:break-word}
+.canal .n.m{font-size:clamp(26px,7.8vw,34px)}
+.canal .n.s{font-size:clamp(20px,6vw,26px)}
+.canal p{font-size:13px;color:var(--tinta2);margin:2px 0 10px}
+.canal.urg{border:2px solid var(--alerta)}
+.canal.urg .n{color:var(--alerta)}
+.canal.oz .n{color:var(--ouro-esc)}
+.canal.az .n{color:var(--azul)}
+
+/* ---------- encerramento ---------- */
+.final{padding:0 0 calc(var(--nav-h) + 40px + env(safe-area-inset-bottom));background:var(--g0);color:#fff;text-align:center}
+.final .equipe{position:relative}
+.final .equipe img{width:100%;height:auto;max-height:520px;object-fit:cover;object-position:50% 30%}
+.final .equipe::after{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(transparent,var(--g0))}
+.final .in{padding:0 18px;position:relative;margin-top:-64px}
+.final .brasao.g{width:96px;height:102px;margin:0 auto 14px;display:block;filter:drop-shadow(0 12px 22px rgba(0,0,0,.5))}
+.final .latim{font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,9vw,44px);font-weight:700;font-style:italic;line-height:1.1;color:var(--ouro)}
+.final .trad{margin-top:8px;font-size:17px;color:#D6EBDD}
+.final .msg{margin:22px auto 0;max-width:34ch;font-size:clamp(17px,4.8vw,20px);line-height:1.5;color:#EAF5EE}
+.final .msg strong{color:var(--g4)}
+.obrigado{display:inline-block;margin-top:20px;padding:6px 12px;border-radius:999px;border:1px solid rgba(124,224,160,.5);color:#BFF0D0;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.assina{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;font-size:13px;font-weight:700;letter-spacing:.06em;color:#D6EBDD;text-align:left}
+.final .acoes{margin:24px auto 0}
+.final .status{justify-self:center}
+.final .fontes{color:#A8CDB6;margin-top:18px}
+.final .fontes b{color:#D6EBDD}
+
+/* aviso e folha */
+.toast{position:fixed;left:50%;bottom:calc(var(--nav-h) + 22px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--g0);color:#fff;padding:11px 16px;border-radius:10px;font-weight:600;font-size:14.5px;opacity:0;pointer-events:none;transition:all .25s;z-index:70;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.sheet{position:fixed;inset:0;z-index:80;background:rgba(11,46,31,.6);display:none;align-items:flex-end;justify-content:center}
+.sheet.show{display:flex}
+.sheet-box{width:100%;max-width:480px;background:#fff;border-radius:20px 20px 0 0;padding:22px 20px calc(24px + env(safe-area-inset-bottom));animation:sobe .3s ease both}
+@keyframes sobe{from{transform:translateY(100%)}to{transform:none}}
+.sheet-box h3{font-size:21px;color:var(--g1)}
+.sheet-box .sub{color:var(--tinta2);margin:6px 0 14px;font-size:15px}
+.sheet-box ol{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:8px}
+.sheet-box li{display:flex;gap:12px;align-items:center;background:var(--off);border:1px solid var(--linha);border-radius:12px;padding:11px 12px;font-size:15.5px}
+.sheet-box li b{flex:none;width:30px;height:30px;border-radius:8px;background:var(--g1);color:#fff;display:grid;place-items:center}
+
+@media (min-width:700px){
+  .sec{padding:66px 24px 70px}
+  .canais{grid-template-columns:repeat(3,1fr)}
+  .abertura .ft img{max-height:560px;object-fit:cover}
+  .carr-item{flex-basis:48%}
+  .carr-item.cheio{flex-basis:100%}
+}
+@media (max-width:370px){
+  .check{grid-template-columns:1fr}
+  .medida{grid-template-columns:104px 1fr}
+  .tres b{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg style="position:absolute;width:0;height:0" aria-hidden="true" focusable="false"><defs>
+  <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-folha" viewBox="0 0 24 24"><path d="M12 21V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 10C12 10 5 9 5 3c6 0 7 7 7 7zM12 14c0 0 7-1 7-7-6 0-7 7-7 7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-fogo" viewBox="0 0 24 24"><path d="M12 3c1 3 5 5.5 5 10.5A5 5 0 0 1 7 13.5c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-6 1-9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-lei" viewBox="0 0 24 24"><path d="M12 4v16M6 20h12M5 7h14M7 7l-3 6a3 3 0 0 0 6 0zM17 7l-3 6a3 3 0 0 0 6 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-maos" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-fone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-arvore" viewBox="0 0 24 24"><path d="M12 21V9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 9C12 9 6 8 6 3c5 0 6 6 6 6zM12 12c0 0 6-1 6-6-5 0-6 6-6 6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+<div class="prog" aria-hidden="true"><i id="progFill"></i></div>
+
+<main>
+
+<!-- ===================== 01 CAPA ===================== -->
+<header class="capa" id="inicio" data-nav="inicio">
+  <svg class="buriti" viewBox="0 0 200 300" aria-hidden="true"><path d="M104 300C108 230 108 160 114 96" fill="none" stroke="#7CE0A0" stroke-width="9" stroke-linecap="round"/><g fill="#7CE0A0"><path d="M114 96C82 72 50 70 24 82c34-4 62 4 90 18z"/><path d="M114 96C92 58 68 42 42 38c32 16 54 36 70 64z"/><path d="M114 96c0-38 10-60 26-74-10 28-14 50-22 80z"/><path d="M114 96c28-32 56-40 82-34-32 6-56 20-78 40z"/><path d="M114 96c34-10 66-4 88 12-32-8-60-8-86-6z"/></g></svg>
+  <div class="capa-topo"><div class="marca"><span>Polícia Militar de Roraima<br>Companhia Independente de Policiamento Ambiental</span></div></div>
+  <div class="capa-txt">
+    <div class="capa-grid">
+      <div>
+        <span class="rot">CIPA Monte Roraima</span>
+        <h1>Guardiões do <span>Lavrado</span></h1>
+      </div>
+      <span class="brasao g" role="img" aria-label="Brasão da CIPA Monte Roraima"></span>
+    </div>
+    <p class="resumo">Conscientização ambiental e repressão a crimes ecossistêmicos — o que a lei protege, o que estamos perdendo e o que cada um de nós pode fazer.</p>
+    <div class="refs" aria-label="Referências"><span class="v">Fauna &amp; Flora de Roraima</span><span class="l">Lei 9.605/98</span><span>Dados PRODES · IBAMA · INPE</span></div>
+    <div class="acoes">
+      <a class="btn ouro" href="#territorio">Começar a leitura ↓</a>
+      <button class="btn claro js-instalar" type="button">📲 Salvar para usar offline</button>
+      <span class="status js-status" role="status" aria-live="polite"></span>
+      <p class="nota-off">Abra uma vez com internet. Depois você poderá consultar offline.</p>
+    </div>
+  </div>
+  <p class="lema"><b>“SAPIENTIA CUSTOS NATURAE”</b>A sabedoria é a guardiã da natureza</p>
+</header>
+
+<!-- ===================== 02 RORAIMA NÃO É SÓ FLORESTA ===================== -->
+<section class="abertura" id="territorio" data-nav="inicio" aria-labelledby="t02">
+  <div class="ft"><img src="img/lavrado_bg.jpg" width="800" height="396" alt="Lavrado roraimense em Amajari, Roraima" decoding="async"><span class="tag">Lavrado roraimense · Amajari, RR</span></div>
+  <div class="sobre">
+    <span class="rot">O lugar onde vivemos</span>
+    <h2 id="t02" style="margin-top:10px">Quando alguém diz <span class="apag">“Amazônia”</span>, pensa em <span class="v">floresta fechada</span>. <em>Roraima é outra coisa também.</em></h2>
+    <p>Aqui existe uma savana amazônica com nome próprio — o <strong>lavrado</strong>. Campo aberto, buritizal, ilha de mata, igarapé. Um ecossistema que não se repete em nenhum outro lugar do Brasil — e que quase ninguém conhece.</p>
+    <div class="ambientes" aria-label="Paisagens do lavrado"><span>Campo aberto</span><span>Buritizal</span><span>Ilha de mata</span><span>Igarapé</span></div>
+    <div class="camada2">
+      <details class="mais"><summary>🔎 Entenda melhor</summary><div class="tec"><p>Roraima tem floresta, mas também tem uma savana amazônica com nome próprio — <strong>e ela é a menos protegida.</strong></p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 PERCURSO ===================== -->
+<section class="sec off" id="roteiro" data-nav="inicio" aria-labelledby="t03">
+  <div class="in">
+    <span class="rot rv">Roteiro</span>
+    <h2 class="titulo rv" id="t03">Quatro perguntas, uma responsabilidade</h2>
+    <p class="resumo rv">Toque em cada parte para ver o que ela aborda.</p>
+    <div class="roteiro">
+      <div class="etapa cartao rv" role="button" tabindex="0" aria-expanded="false" style="--cor:var(--g2)"><span class="n">I</span><b>O que temos</b><small>Lavrado, floresta, fauna e flora de Roraima — o patrimônio que está em jogo.</small><span class="seta" aria-hidden="true"></span><div class="det"><ul><li>Roraima em números e o que é o lavrado</li><li>As árvores que sustentam a savana</li><li>500 aves, 750 plantas — e a fauna resgatada pela CIPA</li></ul><a class="ir" href="#parte1">Ir para a Parte I →</a></div></div>
+      <div class="etapa cartao rv" role="button" tabindex="0" aria-expanded="false" style="--cor:var(--ouro)"><span class="n">II</span><b>O que estamos perdendo</b><small>Desmatamento, fogo e tráfico de animais, em números oficiais.</small><span class="seta" aria-hidden="true"></span><div class="det"><ul><li>38 milhões de animais retirados por ano</li><li>Seis anos de desmatamento em Roraima</li><li>92,7% em floresta pública · 21% do lavrado queimado</li></ul><a class="ir" href="#parte2">Ir para a Parte II →</a></div></div>
+      <div class="etapa cartao rv" role="button" tabindex="0" aria-expanded="false" style="--cor:var(--azul)"><span class="n">III</span><b>O que a lei diz</b><small>Da Constituição à multa por hectare: como o Estado protege o meio ambiente.</small><span class="seta" aria-hidden="true"></span><div class="det"><ul><li>CF, art. 225, e Lei de Crimes Ambientais</li><li>APP × Reserva Legal · DOF · produtos perigosos</li><li>Caso real: Serra do Tepequém</li></ul><a class="ir" href="#parte3">Ir para a Parte III →</a></div></div>
+      <div class="etapa cartao rv" role="button" tabindex="0" aria-expanded="false" style="--cor:var(--g2)"><span class="n">IV</span><b>O que podemos fazer</b><small>Educação ambiental, denúncia e o papel de cada cidadão.</small><span class="seta" aria-hidden="true"></span><div class="det"><ul><li>Educação ambiental: a lei que chega antes</li><li>Cinco atitudes que cabem no seu dia</li><li>Canais de denúncia</li></ul><a class="ir" href="#parte4">Ir para a Parte IV →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="parte" id="parte1" data-nav="temos"><div class="in"><span class="n">I</span><div><small>Parte I</small><h2>O que temos</h2><p>Lavrado, floresta, fauna e flora de Roraima.</p></div></div></div>
+
+<!-- ===================== 04 RORAIMA EM NÚMEROS ===================== -->
+<section class="sec" id="numeros" data-nav="temos" aria-labelledby="t04">
+  <div class="in">
+    <span class="rot rv">I · O que temos</span>
+    <h2 class="titulo rv" id="t04">O território que a CIPA patrulha</h2>
+    <div class="grafico cartao rv">
+      <h3>224.299 km² — 100% do estado de Roraima</h3>
+      <div class="cobertura" role="img" aria-label="Cobertura do território de Roraima: 72% de floresta tropical densa e 28% de campos e cerrados"><i style="--w:72%;background:var(--g2)"></i><i style="--w:28%;background:var(--ouro)"></i></div>
+      <div class="cob-leg"><div><b class="num" style="color:var(--g2)">72%</b><small>Floresta tropical densa</small></div><div><b class="num" style="color:var(--ouro-esc)">28%</b><small>Campos e cerrados — onde fica o lavrado</small></div></div>
+      <p class="nota" style="color:var(--ouro-esc);font-weight:700">o lavrado soma ≈43.000 km² — cerca de 19% do estado</p>
+    </div>
+    <div class="carr rv" data-carr>
+      <div class="carr-trilho" tabindex="0" aria-label="Roraima em números — deslize para o lado">
+        <div class="carr-item"><div class="ncard cartao" style="--cor:var(--g3)"><small>Extensão</small><div class="n num"><span data-conta="224299">224.299</span><u>km²</u></div><p>Área do estado — maior que a Guiana inteira, o país vizinho.</p></div></div>
+        <div class="carr-item"><div class="ncard cartao" style="--cor:var(--ouro);--cor2:var(--ouro-esc)"><small>Savana amazônica</small><div class="n num">≈<span data-conta="43000">43.000</span><u>km²</u></div><p>O lavrado: ~19% de Roraima, maior savana do norte da Amazônia.</p></div></div>
+        <div class="carr-item"><div class="ncard cartao" style="--cor:var(--azul);--cor2:var(--azul)"><small>Bacia do Rio Branco</small><div class="n num"><span data-conta="45530">45.530</span><u>km²</u></div><p>Sub-bacia do Rio Branco — o eixo hídrico que corta o lavrado.</p></div></div>
+        <div class="carr-item"><div class="ncard cartao" style="--cor:var(--alerta);--cor2:var(--alerta)"><small>Proteção do lavrado</small><div class="n num"><span data-conta="0.5" data-dec="1">0,5</span><u>%</u></div><p>Parcela do lavrado sob alguma unidade de conservação.</p></div></div>
+      </div>
+      <div class="carr-ctl"><button type="button" class="carr-ant" aria-label="Anterior">‹</button><span class="pontos" aria-hidden="true"></span><button type="button" class="carr-prox" aria-label="Próximo">›</button></div>
+    </div>
+    <div class="camada2 rv">
+      <details class="mais"><summary>🔎 Entenda melhor</summary><div class="tec"><p>A barra mostra a divisão do território: 72% de floresta densa e 28% de campos e cerrados. O dado que choca é o último: <strong>só 0,5% do lavrado está em unidade de conservação.</strong></p></div></details>
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> IBGE/Geografia de Roraima · Barbosa et al., “Lavrado de Roraima” (Revista Geográfica Acadêmica) · Educarr/Lavrado.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 05 O QUE É O LAVRADO ===================== -->
+<section class="sec off" id="lavrado" data-nav="temos" aria-labelledby="t05">
+  <div class="in">
+    <span class="rot rv">I · O que temos</span>
+    <h2 class="titulo rv" id="t05">O lavrado: a savana que virou <span class="v">paisagem invisível</span></h2>
+    <figure class="foto rv"><img src="img/lavrado_agua.jpg" width="800" height="481" alt="Campo aberto e corpo d'água no lavrado roraimense" loading="lazy" decoding="async"><figcaption><b>Lavrado · Amajari/RR</b> · abr/2025 — fiscalização ambiental em corpo d'água</figcaption></figure>
+    <p class="corpo rv">O lavrado é uma <strong>savana amazônica</strong> — campo aberto entremeado de árvores baixas, veredas de buriti, ilhas de mata e matas de galeria. Ocupa o nordeste de Roraima e se estende até a Guiana e a Venezuela, formando o maior complexo de savanas do norte da Amazônia.</p>
+    <div class="lista-amb rv">
+      <details class="amb cartao"><summary>Savana gramíneo-lenhosa</summary><p>Campo limpo e campo sujo — o “mar de capim” que domina a paisagem.</p></details>
+      <details class="amb cartao"><summary>Savana parque e arbórea aberta</summary><p>Árvores esparsas de caimbé e mirixi sobre solo arenoso e ácido.</p></details>
+      <details class="amb cartao"><summary>Buritizais (veredas)</summary><p>Linhas de buriti que marcam a água no subsolo — berçário de vida.</p></details>
+      <details class="amb cartao"><summary>Ilhas de mata e matas de galeria</summary><p>Manchas de floresta que abrigam fauna e protegem os igarapés.</p></details>
+    </div>
+    <div class="chamada verde rv"><small>Por que isso importa</small>O lavrado é tratado juridicamente como “área de menor valor florestal” — e por isso é o primeiro a ser convertido em pasto e lavoura.</div>
+    <p class="frase rv">Perder o lavrado é perder um bioma inteiro <span class="o">sem que ninguém perceba.</span></p>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> Barbosa, Campos &amp; Pinto — “Lavrado de Roraima: paradigmas ambientais” (Redalyc) · Wikipédia/Lavrado. <b>Foto:</b> fiscalização ambiental em corpo d'água no lavrado, Amajari/RR, abr/2025 — acervo CIPA Monte Roraima.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 06 FLORA DO LAVRADO ===================== -->
+<section class="sec" id="flora" data-nav="temos" aria-labelledby="t06">
+  <div class="in">
+    <span class="rot rv">I · O que temos · Flora</span>
+    <h2 class="titulo rv" id="t06">As quatro árvores que sustentam o lavrado</h2>
+    <p class="resumo rv">Pelo menos <b class="v">750 espécies de plantas vasculares</b> já foram registradas na savana roraimense. Estas são as que estruturam a paisagem.</p>
+    <div class="carr rv" data-carr>
+      <div class="carr-trilho" tabindex="0" aria-label="Quatro árvores do lavrado — deslize para o lado">
+        <div class="carr-item"><div class="esp cartao" style="--cor:var(--ouro-esc)"><span class="ic"><svg width="24" height="24" style="color:var(--ouro-esc)"><use href="#i-arvore"/></svg></span><h3>Caimbé</h3><i>Curatella americana</i><p>Casca grossa e áspera, resistente ao fogo. É a árvore-símbolo do campo aberto — a folha era usada como lixa.</p></div></div>
+        <div class="carr-item"><div class="esp cartao" style="--cor:var(--g2)"><span class="ic"><svg width="24" height="24" style="color:var(--g2)"><use href="#i-arvore"/></svg></span><h3>Mirixi</h3><i>Byrsonima crassifolia</i><p>Fruto amarelo, comestível, base alimentar de aves e mamíferos na estação seca.</p></div></div>
+        <div class="carr-item"><div class="esp cartao" style="--cor:var(--azul)"><span class="ic"><svg width="24" height="24" style="color:var(--azul)"><use href="#i-arvore"/></svg></span><h3>Mirixi-caju</h3><i>Byrsonima coccolobifolia</i><p>Floração intensa que alimenta abelhas nativas — peça-chave da polinização local.</p></div></div>
+        <div class="carr-item"><div class="esp cartao" style="--cor:var(--g2)"><span class="ic"><svg width="24" height="24" style="color:var(--g2)"><use href="#i-arvore"/></svg></span><h3>Buriti</h3><i>Mauritia flexuosa</i><p>Palmeira das veredas. Onde há buriti, há água. Sustenta igarapés, peixes e comunidades.</p></div></div>
+      </div>
+      <div class="carr-ctl"><button type="button" class="carr-ant" aria-label="Anterior">‹</button><span class="pontos" aria-hidden="true"></span><button type="button" class="carr-prox" aria-label="Próximo">›</button></div>
+    </div>
+    <p class="frase rv">“Onde há buriti, <span class="o">há água.</span>”</p>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> Barbosa et al. (Redalyc, 2021) — espécies arbóreas dominantes do lavrado · Educarr/Lavrado.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 07 BIODIVERSIDADE EM NÚMEROS ===================== -->
+<section class="sec off" id="biodiversidade" data-nav="temos" aria-labelledby="t07">
+  <div class="in">
+    <span class="rot rv">I · O que temos · Fauna &amp; Flora</span>
+    <h2 class="titulo rv" id="t07">A savana que dizem ser “vazia”</h2>
+    <p class="resumo rv">Levantamentos científicos no lavrado roraimense já catalogaram:</p>
+    <div class="contas cartao" style="padding:4px 14px;margin-top:18px">
+      <div class="conta rv" style="--cor:var(--g2)"><span class="n num"><span data-conta="500">500</span></span><b>Aves · espécies</b><p>Campo aberto, buritizal e mata de galeria concentram comunidades distintas.</p></div>
+      <div class="conta rv" style="--cor:var(--ouro-esc)"><span class="n num"><span data-conta="750">750</span>+</span><b>Plantas vasculares</b><p>Número mínimo registrado — a flora segue subamostrada.</p></div>
+      <div class="conta rv" style="--cor:var(--azul)"><span class="n num"><span data-conta="188">188</span></span><b>Anfíbios e répteis · espécies</b><p>Herpetofauna com lagartos e anuros adaptados ao solo arenoso.</p></div>
+      <div class="conta rv" style="--cor:var(--alerta)"><span class="n num"><span data-conta="1700">1.700</span>+</span><b>Artrópodes</b><p>Cupins e formigas atuam como engenheiros do ecossistema.</p></div>
+    </div>
+    <div class="chamada verde rv"><small>Só existe aqui</small>E há o <strong>cavalo lavradeiro</strong> — população equina que vive solta no lavrado há mais de <strong>200 anos</strong>, hoje ameaçada. Não existe igual em nenhum outro lugar do mundo.</div>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> Educarr — “Lavrado: a savana amazônica de Roraima” · Barbosa et al., biodiversidade do lavrado · Wikipédia/Lavrado.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 08 FAUNA RESGATADA PELA CIPA ===================== -->
+<section class="sec" id="fauna" data-nav="temos" aria-labelledby="t08">
+  <div class="in">
+    <span class="rot rv">I · O que temos · Fauna</span>
+    <h2 class="titulo rv" id="t08">Rostos reais da fauna roraimense</h2>
+    <div class="selos rv"><span class="datado caso">📍 Casos reais · CIPA</span><span class="datado lei">⚖ Art. 29 · Lei 9.605/98</span></div>
+    <p class="resumo rv" style="margin-top:12px">Registros de operações da CIPA Monte Roraima. Todos estes animais foram encontrados em <b class="o">cativeiro ilegal, apreensão ou resgate</b> — nenhum deveria estar ali.</p>
+    <div class="carr rv" data-carr>
+      <div class="carr-trilho" tabindex="0" aria-label="Fauna resgatada pela CIPA — deslize para ver as fotos">
+        <div class="carr-item cheio"><figure class="doc"><img src="img/f_papagaio.jpg" width="617" height="800" style="object-position:50% 32%" alt="Papagaio · Amazona sp." loading="lazy" decoding="async"><figcaption>Papagaio<small>Amazona sp.</small></figcaption></figure></div>
+        <div class="carr-item cheio"><figure class="doc"><img src="img/f_macaco.jpg" width="369" height="800" style="object-position:50% 26%" alt="Macaco-prego · Sapajus apella" loading="lazy" decoding="async"><figcaption>Macaco-prego<small>Sapajus apella</small></figcaption></figure></div>
+        <div class="carr-item cheio"><figure class="doc"><img src="img/f_felino.jpg" width="620" height="605" style="object-position:50% 42%" alt="Felino silvestre apreendido" loading="lazy" decoding="async"><figcaption>Felino silvestre apreendido</figcaption></figure></div>
+        <div class="carr-item cheio"><figure class="doc"><img src="img/f_tamandua.jpg" width="700" height="486" style="object-position:50% 46%" alt="Tamanduá-mirim · Tamandua tetradactyla" loading="lazy" decoding="async"><figcaption>Tamanduá-mirim<small>Tamandua tetradactyla</small></figcaption></figure></div>
+        <div class="carr-item cheio"><figure class="doc"><img src="img/f_quelonio.jpg" width="620" height="728" style="object-position:50% 42%" alt="Quelônio amazônico · filhote" loading="lazy" decoding="async"><figcaption>Quelônio amazônico<small>filhote</small></figcaption></figure></div>
+        <div class="carr-item cheio"><figure class="doc"><img src="img/f_cobra.jpg" width="507" height="800" style="object-position:50% 52%" alt="Serpente removida de área urbana" loading="lazy" decoding="async"><figcaption>Serpente removida de área urbana</figcaption></figure></div>
+        <div class="carr-item cheio"><figure class="doc"><img src="img/f_perereca.jpg" width="620" height="675" style="object-position:50% 82%" alt="Perereca · anfíbio anuro" loading="lazy" decoding="async"><figcaption>Perereca<small>anfíbio anuro</small></figcaption></figure></div>
+        <div class="carr-item cheio"><figure class="doc"><img src="img/f_bichopau.jpg" width="620" height="786" style="object-position:50% 40%" alt="Bicho-pau · ordem Phasmatodea" loading="lazy" decoding="async"><figcaption>Bicho-pau<small>ordem Phasmatodea</small></figcaption></figure></div>
+      </div>
+      <div class="carr-ctl"><button type="button" class="carr-ant" aria-label="Foto anterior">‹</button><span class="carr-cont" aria-live="polite"></span><button type="button" class="carr-prox" aria-label="Próxima foto">›</button></div>
+    </div>
+    <p class="corpo rv">Papagaio na gaiola, macaco na corrente, filhote de felino em caixa de transporte. <strong>Não é estimação — é crime.</strong> E, para cada animal resgatado com vida, muitos outros morrem antes de chegar ao comprador.</p>
+    <div class="camada2 rv">
+      <details class="mais lei"><summary>⚖ Base legal</summary><div class="tec"><p><strong>Art. 29, Lei 9.605/98 · manter fauna silvestre em cativeiro é crime.</strong></p><p>Manter animal silvestre em cativeiro sem autorização é crime (art. 29 da Lei 9.605) — mesmo que o animal seja bem tratado.</p></div></details>
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fotos:</b> registros de operações da CIPA Monte Roraima — animais encontrados em cativeiro ilegal, apreensão ou resgate.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<div class="parte" id="parte2" data-nav="ameacas"><div class="in"><span class="n" style="--c:var(--ouro)">II</span><div><small>Parte II</small><h2>O que estamos perdendo</h2><p>Desmatamento, fogo e tráfico de animais, em números oficiais.</p></div></div></div>
+
+<!-- ===================== 09 TRÁFICO DE FAUNA ===================== -->
+<section class="sec" id="trafico" data-nav="ameacas" aria-labelledby="t09">
+  <div class="in">
+    <span class="rot alerta rv">II · O que estamos perdendo</span>
+    <h2 class="titulo rv" id="t09">O quarto crime <span class="r">mais lucrativo</span> do mundo</h2>
+    <div class="grafico cartao rv">
+      <h3>Retirados da natureza × resgatados</h3>
+      <p class="sub">Áreas proporcionais à quantidade</p>
+      <div id="traficoBox"></div>
+      <div class="selos" style="margin-top:10px"><span class="datado est">Estimativa anual · RENCTAS</span><span class="datado">Dado de 2024 · IBAMA/CETAS</span></div>
+    </div>
+    <p class="frase rv">Para cada animal resgatado, cerca de <span class="o">1.700</span> seguem no tráfico.</p>
+    <div class="heroi rv" style="--hb:var(--alerta-cl);--hl:#F2CFC8;--hc:var(--alerta)"><small>Escala do crime</small><span class="n num">€ 8 a € 20 bilhões</span><p>O tráfico de animais silvestres movimenta entre <strong>€ 8 e € 20 bilhões por ano</strong> no mundo. O Brasil é uma das principais origens.</p></div>
+    <h3 class="sub3 rv">O que fazer</h3>
+    <ul class="nao rv"><li>Não compre.</li><li>Não aceite de presente.</li><li>Não solte sozinho.</li></ul>
+    <p class="chamada verde rv">Animal apreendido vai para triagem (<strong>CETAS</strong>) antes de qualquer devolução à natureza.</p>
+    <div class="camada2 rv">
+      <details class="mais"><summary>🔎 Entenda o gráfico</summary><div class="tec"><p>As áreas são proporcionais: o quadrado vermelho são os <strong>38 milhões</strong> retirados por ano (estimativa RENCTAS); o pontinho verde, os <strong>22.287</strong> apreendidos em 2024.</p></div></details>
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> RENCTAS (estimativa anual) · IBAMA/CETAS — 22.287 animais recebidos em 2024, via CNN Brasil.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 10 DESMATAMENTO EM RORAIMA ===================== -->
+<section class="sec off" id="desmatamento" data-nav="ameacas" aria-labelledby="t10">
+  <div class="in">
+    <span class="rot alerta rv">II · O que estamos perdendo</span>
+    <h2 class="titulo rv" id="t10">Seis anos de motosserra, em km²</h2>
+    <div class="selos rv"><span class="datado serie">Série temporal · 2020 — 2025</span><span class="datado">PRODES · INPE</span></div>
+    <div class="grafico cartao rv">
+      <h3>Desmatamento anual em Roraima (km²)</h3>
+      <p class="sub">Toque em uma coluna para ver o valor · <span style="color:var(--alerta-esc);font-weight:700">2025* = estimativa</span></p>
+      <div id="desmateBox"></div>
+      <p class="info-toque" id="desmateInfo" aria-live="polite"><b>2024</b> · 468 km² desmatados — o pico da série.</p>
+      <p class="nota"><b style="color:var(--ouro-esc)">+95% em 2 anos</b> — único estado da Amazônia com alta em 2024.</p>
+    </div>
+    <div class="chamada alerta rv"><small>Pico de 2024</small>468 km² — Roraima foi o <strong>único estado da Amazônia Legal</strong> com aumento naquele ano.</div>
+    <div class="chamada verde rv"><small>Queda em 2025 · <span style="color:var(--alerta-esc)">estimativa</span></small>293 km² estimados — queda de <strong>37,4%</strong>, a terceira maior da Amazônia Legal.</div>
+    <div class="chamada rv"><small>Leitura honesta</small>A curva sobe e desce conforme a fiscalização. <strong>Não é tendência — é resultado de presença.</strong></div>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fonte:</b> PRODES/INPE — taxas anuais por estado. <b>*2025:</b> estimativa divulgada em out/2025; taxa consolidada prevista para 2026.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 11 ONDE O DESMATE ACONTECE ===================== -->
+<section class="sec" id="endereco" data-nav="ameacas" aria-labelledby="t11">
+  <div class="in">
+    <span class="rot alerta rv">II · O que estamos perdendo</span>
+    <h2 class="titulo rv" id="t11">O desmate de Roraima <span class="r">tem endereço</span></h2>
+    <figure class="foto rv"><img src="img/desmate.jpg" width="800" height="599" alt="Área desmatada com viatura da CIPA" loading="lazy" decoding="async"><figcaption><b>Área desmatada</b> com viatura da CIPA — acervo CIPA Monte Roraima</figcaption></figure>
+    <div class="grafico cartao rv" style="text-align:center">
+      <div id="arcoBox" style="max-width:220px;margin:0 auto"></div>
+      <p class="resumo" style="text-align:left;margin-top:8px"><strong>92,7%</strong> do desmatamento detectado em Roraima ocorre em <b class="o">florestas públicas não destinadas</b> — terras da União ou do Estado que ainda não foram transformadas em unidade de conservação, terra indígena ou assentamento.</p>
+    </div>
+    <div class="grafico cartao rv">
+      <h3>Desmatamento em florestas públicas não destinadas</h3>
+      <p class="sub">Proporção do desmatamento detectado · análise PRODES 2024</p>
+      <div class="barras" id="fpndBox" style="--lw:84px"></div>
+    </div>
+    <p class="frase rv">Terra sem dono definido vira alvo de grilagem. <span class="o">Destinar a floresta é, por si só, uma forma de protegê-la.</span></p>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fonte:</b> InfoAmazonia / análise PRODES 2024 — proporção do desmatamento em florestas públicas não destinadas (FPND).</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 12 FOGO NO LAVRADO ===================== -->
+<section class="sec off" id="fogo" data-nav="ameacas" aria-labelledby="t12">
+  <div class="in">
+    <span class="rot alerta rv">II · O que estamos perdendo · Fogo</span>
+    <h2 class="titulo rv" id="t12">O lavrado queima todo ano — <span class="r">e quase ninguém conta</span></h2>
+    <div class="waffles rv">
+      <div class="waffle cartao" style="--c:var(--alerta)"><div id="waffleFogo"></div><span class="p num"><span data-conta="21">21</span>%</span><small>Área do lavrado queimada em 2023—2024</small></div>
+      <div class="waffle cartao" style="--c:var(--g2)"><div id="waffleUC"></div><span class="p num"><span data-conta="0.5" data-dec="1">0,5</span>%</span><small>Do lavrado sob unidade de conservação</small></div>
+    </div>
+    <p class="nota rv" style="text-align:center">Cada quadrado aceso é 1% do lavrado.</p>
+    <p class="corpo rv">Um estudo de sensoriamento remoto do INPE mapeou as cicatrizes de queimada na savana: <strong>mais de um quinto do lavrado ardeu</strong> em um único ciclo.</p>
+    <p class="corpo rv">Praticamente toda a savana roraimense está <strong>fora de qualquer área de proteção integral</strong> — quem a defende é a fiscalização de campo.</p>
+    <div class="grafico cartao rv">
+      <h3>Ocupação do lavrado fora de terras indígenas</h3>
+      <div id="ocupacaoBox"></div>
+      <p class="resumo" style="font-size:15.5px;margin-top:6px">Fora das terras indígenas, a ocupação do lavrado saltou de <strong>39% em 2008</strong> para <strong>75% em 2024</strong> — pasto, grão e fogo avançando sobre a savana.</p>
+    </div>
+    <div class="chamada alerta rv"><small>Não é “limpeza”</small>Fogo no campo aberto não é “limpeza”: mata ninhos, répteis e anfíbios que não conseguem fugir, empobrece o solo e abre caminho para capim invasor.</div>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> “Monitoramento de áreas queimadas no Lavrado de Roraima: 2023—2024” (SBSR/INPE, 2025) · Educarr/Lavrado — proteção e ocupação.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<div class="parte" id="parte3" data-nav="lei"><div class="in"><span class="n" style="--c:#8FBDEB">III</span><div><small>Parte III</small><h2>O que a lei diz</h2><p>Da Constituição à multa por hectare: como o Estado protege o meio ambiente.</p></div></div></div>
+
+<!-- ===================== 13 CONSTITUIÇÃO, ART. 225 ===================== -->
+<section class="sec" id="cf225" data-nav="lei" aria-labelledby="t13">
+  <div class="in">
+    <span class="rot ouro rv">III · O que a lei diz</span>
+    <h2 class="titulo rv" id="t13">A regra mais importante do país sobre meio ambiente</h2>
+    <span class="datado lei rv">Art. 225 · CF/1988 · Capítulo VI</span>
+    <div class="citacao cartao rv"><q><mark>Todos</mark> têm direito ao meio ambiente ecologicamente equilibrado, bem de uso comum do povo e essencial à sadia qualidade de vida, impondo-se ao <mark>Poder Público</mark> e à <mark>coletividade</mark> o <strong>dever de defendê-lo e preservá-lo</strong> para as presentes e futuras gerações.</q></div>
+    <div class="bloco cartao rv"><span class="ref v">§ 1º, VI</span><p>Incumbe ao Poder Público promover a <strong>educação ambiental</strong> em todos os níveis de ensino e a <strong>conscientização pública</strong> para a preservação do meio ambiente.</p></div>
+    <div class="bloco cartao rv"><span class="ref r">§ 3º · tripla responsabilidade</span>
+      <div class="tres"><div><b>Penal</b><small>sanção</small></div><div><b>Adminis&shy;trativa</b><small>sanção</small></div><div><b>Reparar o dano</b><small>obrigação</small></div></div>
+      <p>Quem causa dano ambiental responde em <strong>três frentes ao mesmo tempo</strong>: sanção <strong>penal</strong>, sanção <strong>administrativa</strong> e obrigação de <strong>reparar o dano</strong> — pessoa física ou jurídica.</p></div>
+    <div class="camada2 rv">
+      <details class="mais"><summary>💬 Em linguagem simples</summary><div class="tec"><ul><li>O meio ambiente <strong>não pertence a ninguém</strong> — pertence a todos, inclusive a quem ainda vai nascer.</li><li>Proteger não é só tarefa do governo: a <strong>coletividade</strong> tem o mesmo dever.</li><li>A Constituição manda <strong>ensinar</strong> — por isso esta palestra existe.</li></ul></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 14 LEI DE CRIMES AMBIENTAIS ===================== -->
+<section class="sec off" id="lei9605" data-nav="lei" aria-labelledby="t14">
+  <div class="in">
+    <span class="rot ouro rv">III · O que a lei diz · Crimes contra a flora · poluição</span>
+    <h2 class="titulo rv" id="t14">Lei 9.605/98 e Decreto 6.514/08: <span class="o">crime e multa, lado a lado</span></h2>
+    <p class="resumo rv">Quatro crimes que a CIPA mais encontra em campo, com a pena e a multa correspondente.</p>
+    <div class="artigos">
+      <article class="artigo cartao rv"><span class="ref">Art. 38 · Lei 9.605/98</span><p>Destruir ou danificar floresta de <strong>preservação permanente</strong>, mesmo em formação.</p>
+        <details><summary>Ver pena e multa</summary><dl><div><dt>Pena</dt><dd class="pena">Detenção de 1 a 3 anos, ou multa, ou ambas</dd></div><div><dt>Multa administrativa</dt><dd class="multa">Decreto art. 43 — multa de R$ 5.000 a R$ 50.000 por hectare</dd></div></dl></details></article>
+      <article class="artigo cartao rv"><span class="ref">Art. 46 · Lei 9.605/98</span><p>Receber, adquirir, vender, transportar ou guardar <strong>madeira sem licença válida</strong> para todo o tempo da viagem.</p>
+        <details><summary>Ver pena e multa</summary><dl><div><dt>Pena</dt><dd class="pena">Detenção de 6 meses a 1 ano, e multa</dd></div><div><dt>Multa administrativa</dt><dd class="multa">Decreto art. 47 — multa de R$ 300 por metro cúbico</dd></div></dl></details></article>
+      <article class="artigo cartao rv"><span class="ref">Art. 56 · Lei 9.605/98</span><p>Produzir, transportar ou armazenar <strong>produto ou substância tóxica, perigosa ou nociva</strong> em desacordo com a lei.</p>
+        <details><summary>Ver pena e multa</summary><dl><div><dt>Pena</dt><dd class="pena">Reclusão de 1 a 4 anos, e multa</dd></div><div><dt>Multa administrativa</dt><dd class="multa">Decreto art. 64 — multa de R$ 500 a R$ 2.000.000</dd></div></dl></details></article>
+      <article class="artigo cartao rv"><span class="ref">Art. 60 · Lei 9.605/98</span><p>Construir, reformar ou fazer funcionar obra ou serviço <strong>potencialmente poluidor sem licença</strong> ambiental.</p>
+        <details><summary>Ver pena e multa</summary><dl><div><dt>Pena</dt><dd class="pena">Detenção de 1 a 6 meses, ou multa, ou ambas</dd></div><div><dt>Multa administrativa</dt><dd class="multa">Decreto art. 66 — multa de R$ 500 a R$ 10.000.000</dd></div></dl></details></article>
+    </div>
+    <div class="chamada rv"><small>Art. 70 · Lei 9.605/98</small>Infração administrativa ambiental é toda ação <em>ou omissão</em> que viole as regras de uso, gozo, promoção, proteção e recuperação do meio ambiente. A autoridade que toma conhecimento é <strong>obrigada</strong> a apurar.</div>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> Lei Federal nº 9.605/1998 · Decreto Federal nº 6.514/2008 — valores conforme material técnico da CIPA Monte Roraima.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 15 APP × RESERVA LEGAL ===================== -->
+<section class="sec" id="app-rl" data-nav="lei" aria-labelledby="t15">
+  <div class="in">
+    <span class="rot ouro rv">III · O que a lei diz · Código Florestal (Lei 12.651/2012)</span>
+    <h2 class="titulo rv" id="t15">Duas proteções diferentes — e muita gente confunde</h2>
+    <div class="duas rv">
+      <div class="cartao" style="--c:var(--azul);--c2:var(--azul)"><b>APP</b><small>Preservação Permanente</small><p>Protege <strong>a água</strong> e o relevo.</p></div>
+      <div class="cartao" style="--c:var(--ouro);--c2:var(--ouro-esc)"><b>Reserva Legal</b><small>Dentro do imóvel rural</small><p>Protege <strong>a proporção de mata</strong>.</p></div>
+    </div>
+    <div class="chamada rv"><small>Regra de bolso</small>A APP protege <strong>a água</strong>; a Reserva Legal protege <strong>a proporção de mata</strong> dentro da propriedade. As duas somam — uma não substitui a outra.</div>
+    <div class="tabs rv" role="tablist" aria-label="Ver medidas">
+      <button type="button" role="tab" id="tab-app" aria-selected="true" aria-controls="pn-app">APP</button>
+      <button type="button" role="tab" id="tab-rl" aria-selected="false" aria-controls="pn-rl">Reserva Legal</button>
+    </div>
+    <div class="painel-tab cartao" id="pn-app" role="tabpanel" aria-labelledby="tab-app">
+      <h3 style="color:var(--azul)">Área de Preservação Permanente</h3>
+      <p>A faixa de vegetação que <strong>protege a água e o relevo</strong>: margem de rio, nascente, encosta, topo de morro. É intocável — a regra é <strong>não usar</strong>.</p>
+      <div class="barras" id="appBox" style="--lw:118px"></div>
+      <details class="mais lei" style="margin-top:14px"><summary>⚖ Ver multa</summary><div class="tec"><p><strong>Multa: R$ 5.000 a R$ 50.000 por hectare</strong> (Decreto 6.514/08, art. 43)</p></div></details>
+    </div>
+    <div class="painel-tab cartao" id="pn-rl" role="tabpanel" aria-labelledby="tab-rl" hidden>
+      <h3 style="color:var(--ouro-esc)">Reserva Legal</h3>
+      <p>A <strong>fração do imóvel rural</strong> que deve permanecer com vegetação nativa. Pode ter uso econômico sustentável — o que não pode é <strong>virar pasto ou lavoura</strong>.</p>
+      <div class="barras" id="rlBox" style="--lw:118px"></div>
+      <span class="car">📋 Registro obrigatório no <strong>CAR</strong></span>
+      <details class="mais lei" style="margin-top:14px"><summary>⚖ Ver multa</summary><div class="tec"><p><strong>Multa: R$ 5.000 a R$ 50.000 por hectare</strong> (Decreto 6.514/08, art. 51)</p></div></details>
+    </div>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Base legal e fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> Lei nº 12.651/2012 (Código Florestal), arts. 4º, 12 e 61-A · Decreto nº 6.514/2008, arts. 43 e 51.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 16 MADEIRA LEGAL × ILEGAL ===================== -->
+<section class="sec off" id="dof" data-nav="lei" aria-labelledby="t16">
+  <div class="in">
+    <span class="rot ouro rv">III · O que a lei diz · Fiscalização</span>
+    <h2 class="titulo rv" id="t16">O documento que separa a madeira legal do crime</h2>
+    <figure class="foto rv"><img src="img/toras_eq.jpg" width="800" height="600" alt="Fiscalização de carga de toras em rodovia" loading="lazy" decoding="async"><figcaption><b>Fiscalização de carga</b> · BR/RR</figcaption></figure>
+    <div class="bloco cartao rv"><span class="ref">DOF · Documento de Origem Florestal</span><p>Toda madeira em trânsito precisa estar acompanhada do DOF — a “certidão de nascimento” do produto florestal. <strong>Sem DOF válido durante todo o tempo da viagem, o transporte é crime</strong> (art. 46 da Lei 9.605/98).</p></div>
+    <h3 class="sub3 rv">O que o policial ambiental confere</h3>
+    <ul class="check rv"><li>Origem da carga</li><li>Rota de transporte</li><li>Tipo de produto florestal</li><li>Prazo de validade</li><li>Volume declarado</li><li>Identificação do veículo</li><li>Procedência legal</li><li>Emissor e destinatário</li></ul>
+    <div class="chamada alerta rv"><small>Divergência</small>Divergência entre o papel e a carga? O agente autua considerando o <strong>volume integral</strong> de madeira — e a multa é de <strong>R$ 300 por metro cúbico</strong>.</div>
+    <div class="camada2 rv">
+      <details class="mais"><summary>📷 Ver mais registros</summary><div class="tec"><div class="fotos2"><figure class="foto"><img src="img/dof_check.jpg" width="800" height="600" alt="Policial conferindo o DOF do transportador" loading="lazy" decoding="async"><figcaption>Conferência do DOF</figcaption></figure><figure class="foto"><img src="img/dof_blitz.jpg" width="800" height="600" alt="Abordagem de caminhão em rodovia" loading="lazy" decoding="async"><figcaption>Abordagem · dez/2024</figcaption></figure></div></div></details>
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> Lei 9.605/98, art. 46 · Decreto 6.514/08, art. 47 · registros operacionais da CIPA Monte Roraima (2024—2025).</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 17 PRODUTOS PERIGOSOS ===================== -->
+<section class="sec" id="perigosos" data-nav="lei" aria-labelledby="t17">
+  <div class="in">
+    <span class="rot alerta rv">III · O que a lei diz · Poluição</span>
+    <h2 class="titulo rv" id="t17">Tóxico, perigoso, nocivo — <span class="r">e a bombona no porta‑malas</span></h2>
+    <figure class="foto rv"><img src="img/combustivel.jpg" width="592" height="800" alt="Bombonas de combustível apreendidas pela CIPA" loading="lazy" decoding="async" style="aspect-ratio:4/3;object-fit:cover;object-position:50% 55%"><figcaption><b>Apreensão</b> · Boa Vista/RR · jan/2024</figcaption></figure>
+    <div class="cats rv">
+      <div class="cat cartao" style="--c:var(--alerta)"><b>Tóxica</b><p>Causa dano ou morte ao entrar em contato com um organismo vivo.</p><small>Ex.: mercúrio</small></div>
+      <div class="cat cartao" style="--c:var(--ouro);--c2:var(--ouro-esc)"><b>Perigosa</b><p>Ameaça saúde, ambiente ou segurança — explosão, incêndio, reação química.</p><small>Ex.: gasolina, diesel</small></div>
+      <div class="cat cartao" style="--c:var(--azul)"><b>Nociva</b><p>Causa dano à saúde ou ao ambiente, ainda que não de imediato.</p><small>Ex.: agrotóxicos</small></div>
+    </div>
+    <div class="grafico cartao rv">
+      <h3>Transporte de combustível · limites por unidade de transporte</h3>
+      <div class="barras" id="combBox" style="--lw:112px"></div>
+      <p class="resumo" style="font-size:15px;margin-top:12px">Acima disso, ou em vasilhame não homologado pelo INMETRO, o transporte é irregular — e responde pelo <strong>art. 56 da Lei 9.605/98</strong> (reclusão de 1 a 4 anos).</p>
+    </div>
+    <div class="chamada alerta rv">Garrafa PET, galão improvisado, bombona sem certificação: além de ilegal, é <strong>risco de incêndio e de contaminação do solo e da água</strong>.</div>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Base legal e fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> Lei 9.605/98, art. 56 · Decreto 6.514/08, art. 64 · Portaria INMETRO 141/2010 · material técnico CIPA Monte Roraima.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 18 CASO: SERRA DO TEPEQUÉM ===================== -->
+<section class="sec off" id="tepequem" data-nav="lei" aria-labelledby="t18">
+  <div class="in">
+    <span class="rot ouro rv">III · O que a lei diz · Caso real</span>
+    <h2 class="titulo rv" id="t18">Serra do Tepequém: <span class="r">40 m² sem licença</span></h2>
+    <div class="selos rv"><span class="datado caso">📍 Caso real · Amajari/RR · abr/2025</span><span class="datado">Ação integrada · CIPA · FEMARH · DPMA · SMMA</span></div>
+    <figure class="foto rv"><img src="img/tep_obra.jpg" width="800" height="384" alt="Estrutura da obra irregular e placa do CREA-RR na Serra do Tepequém" loading="lazy" decoding="async"><figcaption><b>Obra em fase inicial</b> · sem licença ambiental</figcaption></figure>
+    <div class="medida cartao rv">
+      <svg viewBox="0 0 140 100" role="img" aria-label="Planta da obra: 8 metros por 5 metros, 40 metros quadrados">
+        <rect x="6" y="8" width="100" height="62.5" rx="3" fill="#FBECE8" stroke="#C9503F" stroke-width="2"/>
+        <text x="56" y="45" text-anchor="middle" font-size="16" font-weight="800" fill="#8E2E22">40 m²</text>
+        <line x1="6" y1="84" x2="106" y2="84" stroke="#6B8175" stroke-width="1.2"/><line x1="6" y1="80" x2="6" y2="88" stroke="#6B8175"/><line x1="106" y1="80" x2="106" y2="88" stroke="#6B8175"/>
+        <text x="56" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#3F574A">8 m</text>
+        <line x1="116" y1="8" x2="116" y2="70.5" stroke="#6B8175" stroke-width="1.2"/><line x1="112" y1="8" x2="120" y2="8" stroke="#6B8175"/><line x1="112" y1="70.5" x2="120" y2="70.5" stroke="#6B8175"/>
+        <text x="122" y="43" font-size="11" font-weight="700" fill="#3F574A">5 m</text>
+      </svg>
+      <div><small style="display:block;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--alerta)">Auto de infração</small><p>Construir na Serra do Tepequém obra de <strong>8 m × 5 m (40 m²)</strong>, efetiva ou potencialmente poluidora, <strong>sem licença</strong> dos órgãos ambientais competentes.</p></div>
+    </div>
+    <h3 class="sub3 rv">Sanções administrativas</h3>
+    <ol class="sancoes rv"><li class="cartao"><b>1</b>Multa</li><li class="cartao"><b>2</b>Embargo da área</li><li class="cartao"><b>3</b>Suspensão das atividades</li></ol>
+    <div class="chamada rv"><small>Medição técnica + prova</small>A perícia mediu comprimento, largura e a <strong>distância até o poço</strong> — a prova técnica é o que sustenta o auto quando o caso chega ao Judiciário.</div>
+    <div class="camada2 rv">
+      <details class="mais"><summary>📷 Ver a medição técnica</summary><div class="tec"><figure class="foto" style="margin-top:4px"><img src="img/tep_medida.jpg" width="680" height="565" alt="Policial ambiental medindo as dimensões da construção com trena" loading="lazy" decoding="async"><figcaption>Medição técnica com trena · Amajari/RR · abr/2025</figcaption></figure></div></details>
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fonte:</b> autos e registros fotográficos da operação integrada — CIPA Monte Roraima, Serra do Tepequém, abr/2025.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 19 MULTA APLICADA × MULTA PAGA ===================== -->
+<section class="sec" id="multas" data-nav="lei" aria-labelledby="t19">
+  <div class="in">
+    <span class="rot ouro rv">III · O que a lei diz · Efetividade</span>
+    <h2 class="titulo rv" id="t19">Autuar é o começo. <span class="o">Cobrar é o resto do trabalho.</span></h2>
+    <div class="selos rv"><span class="datado">Dado de 2024 · IBAMA</span></div>
+    <div class="grafico cartao rv">
+      <h3>Total de multas ambientais aplicadas pelo IBAMA em 2024</h3>
+      <p class="total num">R$ 4,707 bilhões</p>
+      <div class="multa-bar" role="img" aria-label="Multas ambientais do IBAMA em 2024: 4,707 bilhões aplicados, 729 milhões pagos (15,5%)"><i></i></div>
+      <p style="margin-top:10px;font-size:15px;color:var(--tinta2)"><strong style="color:var(--ouro-esc)">R$ 729 milhões pagos</strong> — 15,5% do valor aplicado — recorde histórico (a média anual era 5%)</p>
+      <div class="multa-leg"><span><i></i>Arrecadado</span><span><i class="n"></i>Não arrecadado · R$ 3,978 bilhões (84,5%)</span></div>
+    </div>
+    <div class="grafico cartao rv">
+      <h3>Arrecadado pelo IBAMA</h3>
+      <div class="barras" id="arrecBox" style="--lw:56px"></div>
+      <h3 style="margin-top:16px">Taxa de pagamento</h3>
+      <div class="barras" id="taxaBox" style="--lw:118px"></div>
+    </div>
+    <p class="frase rv">Multa aplicada não é multa paga — <span class="o">a lei só funciona com fiscalização contínua.</span></p>
+    <div class="camada2 rv">
+      <details class="mais"><summary>📊 Entenda o dado</summary><div class="tec"><ul><li><strong>R$ 729 milhões arrecadados em 2024</strong> — recorde histórico do IBAMA — 54% de todo o orçamento anual do órgão.</li><li><strong>R$ 219 milhões arrecadados em 2023</strong> — o salto entre 2023 e 2024 foi de mais de três vezes.</li><li><strong>Taxa de pagamento de 15,5%</strong> — contra uma média histórica de apenas 5% ao ano.</li></ul></div></details>
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fontes:</b> IBAMA — balanço de arrecadação 2024, via ClimaInfo (jan/2025).</p></div></details>
+    </div>
+  </div>
+</section>
+
+<div class="parte" id="parte4" data-nav="fazer"><div class="in"><span class="n">IV</span><div><small>Parte IV</small><h2>O que podemos fazer</h2><p>Educação ambiental, denúncia e o papel de cada cidadão.</p></div></div></div>
+
+<!-- ===================== 20 EDUCAÇÃO AMBIENTAL ===================== -->
+<section class="sec" id="educacao" data-nav="fazer" aria-labelledby="t20">
+  <div class="in">
+    <span class="rot rv">IV · O que podemos fazer</span>
+    <h2 class="titulo rv" id="t20">A fiscalização chega depois. <span class="v">A educação chega antes.</span></h2>
+    <div class="carr rv" data-carr>
+      <div class="carr-trilho" tabindex="0" aria-label="Ações educativas da CIPA — deslize para ver as fotos">
+        <div class="carr-item cheio"><figure class="doc paisagem"><img src="img/edu_escola.jpg" width="800" height="600" alt="Palestra da CIPA em escola de Roraima" loading="lazy" decoding="async"><figcaption>Na escola<small>Palestra em escola · nov/2024</small></figcaption></figure></div>
+        <div class="carr-item cheio"><figure class="doc paisagem"><img src="img/edu_comun.jpg" width="800" height="600" alt="Ação comunitária de educação ambiental" loading="lazy" decoding="async"><figcaption>Na comunidade<small>Ação comunitária</small></figcaption></figure></div>
+        <div class="carr-item cheio"><figure class="doc paisagem"><img src="img/edu_blitz.jpg" width="800" height="600" alt="Orientação a condutor em fiscalização de estrada" loading="lazy" decoding="async"><figcaption>Na estrada<small>Orientação em estrada · Amajari</small></figcaption></figure></div>
+      </div>
+      <div class="carr-ctl"><button type="button" class="carr-ant" aria-label="Foto anterior">‹</button><span class="carr-cont" aria-live="polite"></span><button type="button" class="carr-prox" aria-label="Próxima foto">›</button></div>
+    </div>
+    <p class="corpo rv">Por isso a CIPA Monte Roraima entra na escola, na comunidade e na blitz de estrada: <strong>a lei que ninguém conhece é a lei que todo mundo descumpre.</strong></p>
+    <div class="bloco cartao rv"><span class="ref v">Lei nº 9.795/1999 · Política Nacional de Educação Ambiental</span>
+      <p><strong>Art. 1º —</strong> educação ambiental é o processo pelo qual o <strong>indivíduo</strong> e a <strong>coletividade</strong> constroem valores sociais, conhecimentos, habilidades, atitudes e competências voltadas à <strong>conservação do meio ambiente</strong>.</p>
+      <details class="mais lei" style="margin-top:12px"><summary>⚖ Ler o art. 2º</summary><div class="tec"><p><strong>Art. 2º —</strong> é componente <strong>essencial e permanente</strong> da educação nacional, em todos os níveis, em caráter <strong>formal e não-formal</strong>.</p></div></details>
+    </div>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fonte:</b> Lei nº 9.795/1999, arts. 1º e 2º · registros de ações educativas da CIPA Monte Roraima (2024—2025).</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 21 CINCO ATITUDES ===================== -->
+<section class="sec off" id="atitudes" data-nav="fazer" aria-labelledby="t21">
+  <div class="in">
+    <span class="rot rv">IV · O que podemos fazer</span>
+    <h2 class="titulo rv" id="t21">Cinco atitudes que cabem no seu dia</h2>
+    <ol class="atitudes">
+      <li class="cartao rv"><span class="n">1</span><div><b>Não compre fauna</b><p>Papagaio, jabuti, macaco: comprar alimenta o tráfico. Sem comprador, não há caçador.</p></div></li>
+      <li class="cartao rv"><span class="n">2</span><div><b>Não bote fogo</b><p>Queimada “de limpeza” foge de controle, mata ninhos e empobrece o solo do lavrado.</p></div></li>
+      <li class="cartao rv"><span class="n">3</span><div><b>Respeite a beira do rio</b><p>Mata ciliar é APP. Preservar a margem é preservar a água que você bebe.</p></div></li>
+      <li class="cartao rv"><span class="n">4</span><div><b>Exija a origem</b><p>Comprou madeira, lenha ou carvão? Peça o DOF. Sem documento, você também responde.</p></div></li>
+      <li class="cartao rv o"><span class="n">5</span><div><b>Denuncie</b><p>Você não precisa se identificar para relatar um crime ambiental que está vendo.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CANAIS DE DENÚNCIA ===================== -->
+<section class="sec" id="denuncie" data-nav="fazer" aria-labelledby="tcan">
+  <div class="in">
+    <span class="rot alerta rv">Canais de denúncia</span>
+    <h2 class="titulo rv" id="tcan">Guarde estes números</h2>
+    <div class="canais">
+      <div class="canal cartao urg rv"><small>Polícia Militar · emergência</small><div class="n num">190</div><p>Polícia Militar de Roraima</p><a class="btn alerta largo peq" href="tel:190"><svg width="18" height="18" aria-hidden="true"><use href="#i-fone"/></svg>Ligar 190</a></div>
+      <div class="canal cartao oz rv"><small>Linha Verde IBAMA · ouvidoria</small><div class="n m num">0800 061 8080</div><p>IBAMA</p><a class="btn largo peq" href="tel:08000618080"><svg width="18" height="18" aria-hidden="true"><use href="#i-fone"/></svg>Ligar para a Linha Verde</a></div>
+      <div class="canal cartao az rv"><small>Formulário eletrônico de denúncia</small><div class="n s">falabr.cgu.gov.br</div><p>Fala.BR · precisa de internet</p><a class="btn azul largo peq" href="https://falabr.cgu.gov.br" target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-web"/></svg>Abrir o Fala.BR</a></div>
+    </div>
+    <div class="camada2 rv">
+      <details class="mais fonte"><summary>📚 Ver fonte</summary><div class="tec"><p class="fontes"><b>Fonte:</b> IBAMA — canais oficiais de denúncia ambiental (gov.br/ibama) · Polícia Militar de Roraima.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 22 SAPIENTIA CUSTOS NATURAE ===================== -->
+<footer class="final" id="fim" data-nav="fazer">
+  <div class="equipe"><img src="img/equipe.jpg" width="601" height="800" alt="Equipe da CIPA Monte Roraima no marco do Equador" loading="lazy" decoding="async"></div>
+  <div class="in">
+    <span class="brasao g" role="img" aria-label="Brasão da CIPA Monte Roraima"></span>
+    <p class="latim">“Sapientia<br>Custos Naturae”</p>
+    <p class="trad">A sabedoria é a guardiã da natureza.</p>
+    <p class="msg">A lei pune quem destrói. Mas quem realmente protege o lavrado, a floresta e a fauna de Roraima é <strong>gente que sabe o que está olhando</strong> — e não aceita o que está errado.</p>
+    <span class="obrigado">Obrigado pela atenção</span>
+    <div class="assina"><span class="brasao" role="img" aria-label="Brasão da CIPA Monte Roraima"></span><span>CIPA MONTE RORAIMA<br>POLÍCIA MILITAR DE RORAIMA</span></div>
+    <div class="acoes">
+      <button class="btn ouro" id="share" type="button">📤 Compartilhar material</button>
+      <button class="btn claro js-instalar" type="button">📲 Salvar para usar offline</button>
+      <span class="status js-status" role="status" aria-live="polite"></span>
+      <a class="btn claro" href="#inicio">↑ Voltar ao início</a>
+    </div>
+    <p class="fontes">Versão mobile da apresentação “Guardiões do Lavrado” — CIPA Monte Roraima / PMRR. <b>Foto:</b> equipe da CIPA Monte Roraima no marco do Equador.</p>
+  </div>
+</footer>
+</main>
+
+<nav class="nav" aria-label="Seções">
+  <a href="#inicio" data-alvo="inicio"><svg aria-hidden="true"><use href="#i-casa"/></svg>Início</a>
+  <a href="#parte1" data-alvo="temos"><svg aria-hidden="true"><use href="#i-folha"/></svg>O que temos</a>
+  <a href="#parte2" data-alvo="ameacas"><svg aria-hidden="true"><use href="#i-fogo"/></svg>Ameaças</a>
+  <a href="#parte3" data-alvo="lei"><svg aria-hidden="true"><use href="#i-lei"/></svg>Lei</a>
+  <a href="#parte4" data-alvo="fazer"><svg aria-hidden="true"><use href="#i-maos"/></svg>O que fazer</a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-ttl">
+  <div class="sheet-box"><h3 id="sheet-ttl">Salvar no celular</h3><p class="sub" id="sheet-sub"></p><ol id="passos"></ol><button class="btn largo" id="fechar" type="button">Entendi</button></div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var doc = document.documentElement; doc.classList.add('js');
+  var semMov = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(id){ return document.getElementById(id); }
+  function el(tag, cls, html){ var e = document.createElement(tag); if(cls) e.className = cls; if(html != null) e.innerHTML = html; return e; }
+  function nf(n, d){ d = d || 0; return Number(n).toLocaleString('pt-BR', {minimumFractionDigits:d, maximumFractionDigits:d}); }
+
+  /* --- Gráficos (dados do objeto D e das funções viz* da apresentação) --- */
+  var DESMATE = [['2020',297,''],['2021',386,''],['2022',240,''],['2023',284,''],['2024',468,'pico'],['2025',293,'est']];
+
+  (function(){
+    var W = 340, H = 214, ML = 34, MR = 6, MT = 24, MB = 26, pw = W-ML-MR, ph = H-MT-MB, max = 500, n = DESMATE.length, slot = pw/n, bw = Math.min(34, slot*.62), s = '';
+    for(var v = 0; v <= max; v += 100){ var y = MT+ph-(v/max)*ph; s += '<line x1="'+ML+'" y1="'+y+'" x2="'+(W-MR)+'" y2="'+y+'" stroke="#E6EEE9"/><text x="'+(ML-6)+'" y="'+(y+4)+'" font-size="10" fill="#6B8175" text-anchor="end">'+v+'</text>'; }
+    DESMATE.forEach(function(d, i){
+      var x = ML+slot*i+(slot-bw)/2, h = d[1]/max*ph, y = MT+ph-h, est = d[2] === 'est', pico = d[2] === 'pico';
+      s += '<g class="col-alvo" tabindex="0" role="button" data-i="'+i+'" aria-label="'+d[0]+': '+d[1]+' km²'+(est?' (estimativa)':'')+'">'+
+        '<rect class="bg" x="'+(ML+slot*i+1)+'" y="'+MT+'" width="'+(slot-2)+'" height="'+(ph+MB)+'" fill="transparent" rx="6"/>'+
+        '<rect class="col-cresce" x="'+x+'" y="'+y+'" width="'+bw+'" height="'+h+'" rx="4" fill="'+(pico?'#C9503F':est?'rgba(201,80,63,.18)':'#2E7D4F')+'"'+(est?' stroke="#C9503F" stroke-width="1.6" stroke-dasharray="4 3"':'')+' style="transition-delay:'+(i*80)+'ms"/>'+
+        '<text x="'+(x+bw/2)+'" y="'+(y-6)+'" font-size="12" font-weight="800" text-anchor="middle" fill="'+(pico?'#8E2E22':'#0B2E1F')+'">'+d[1]+'</text>'+
+        '<text x="'+(x+bw/2)+'" y="'+(MT+ph+17)+'" font-size="11" font-weight="700" text-anchor="middle" fill="'+(est?'#8E2E22':'#3F574A')+'">'+d[0]+(est?'*':'')+'</text></g>';
+    });
+    s += '<line x1="'+ML+'" y1="'+(MT+ph)+'" x2="'+(W-MR)+'" y2="'+(MT+ph)+'" stroke="#9FB5A8"/><text x="2" y="12" font-size="10" font-weight="700" fill="#6B8175">km²</text>';
+    $('desmateBox').innerHTML = '<svg class="viz" viewBox="0 0 '+W+' '+H+'" role="group" aria-label="Desmatamento anual em Roraima, 2020 a 2025, em quilômetros quadrados">'+s+'</svg>';
+    var info = $('desmateInfo');
+    function mostra(i){ var d = DESMATE[i]; info.innerHTML = '<b>'+d[0]+'</b> · '+d[1]+' km² desmatados'+(d[2]==='est'?' — <b style="color:#8E2E22">estimativa</b> (divulgada em out/2025; taxa consolidada prevista para 2026)':d[2]==='pico'?' — o pico da série; único estado da Amazônia Legal com aumento naquele ano.':'.'); }
+    $('desmateBox').querySelectorAll('.col-alvo').forEach(function(g){
+      g.addEventListener('click', function(){ mostra(+g.getAttribute('data-i')); });
+      g.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); mostra(+g.getAttribute('data-i')); } });
+    });
+  })();
+
+  (function(){
+    var grande = 38000000, peq = 22287, L = 150, l = Math.max(5, L*Math.sqrt(peq/grande)), x0 = 8, y0 = 10;
+    $('traficoBox').innerHTML = '<svg class="viz" viewBox="0 0 340 176" role="img" aria-label="Comparação de áreas: 38 milhões de animais retirados da natureza por ano (estimativa) contra 22.287 apreendidos em 2024">'+
+      '<defs><pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="rgba(255,255,255,.28)" stroke-width="3"/></pattern></defs>'+
+      '<rect x="'+x0+'" y="'+y0+'" width="'+L+'" height="'+L+'" rx="8" fill="#C9503F"/><rect x="'+x0+'" y="'+y0+'" width="'+L+'" height="'+L+'" rx="8" fill="url(#hatch)"/>'+
+      '<circle cx="'+(x0+L-8-l/2)+'" cy="'+(y0+L-8-l/2)+'" r="14" fill="none" stroke="#fff" stroke-width="1.6"/>'+
+      '<rect x="'+(x0+L-8-l)+'" y="'+(y0+L-8-l)+'" width="'+l+'" height="'+l+'" fill="#7CE0A0" stroke="#0B2E1F" stroke-width="1"/>'+
+      '<text x="172" y="36" font-size="22" font-weight="800" fill="#0B2E1F">38.000.000</text>'+
+      '<text x="172" y="52" font-size="10" font-weight="800" fill="#8E2E22" letter-spacing=".5">RETIRADOS DA NATUREZA</text><text x="172" y="64" font-size="10" font-weight="800" fill="#8E2E22" letter-spacing=".5">POR ANO (ESTIMATIVA)</text>'+
+      '<text x="172" y="120" font-size="22" font-weight="800" fill="#0B2E1F">22.287</text>'+
+      '<text x="172" y="136" font-size="10" font-weight="800" fill="#2E7D4F" letter-spacing=".5">APREENDIDOS E</text><text x="172" y="148" font-size="10" font-weight="800" fill="#2E7D4F" letter-spacing=".5">RESGATADOS EM 2024</text>'+
+      '<line x1="'+(x0+L-8+6)+'" y1="'+(y0+L-8-l/2)+'" x2="166" y2="128" stroke="#2E7D4F" stroke-width="1"/></svg>';
+  })();
+
+  (function(){
+    var S = 200, R = 78, cx = 100, cy = 100, C = 2*Math.PI*R, off = C*(1-92.7/100);
+    $('arcoBox').innerHTML = '<svg class="viz" viewBox="0 0 '+S+' '+S+'" role="img" aria-label="92,7% do desmatamento em Roraima ocorre em florestas públicas não destinadas">'+
+      '<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="none" stroke="#EEF3F0" stroke-width="16"/>'+
+      '<circle class="arco-anim" data-alvo="'+off.toFixed(1)+'" cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="none" stroke="#D9A53A" stroke-width="16" stroke-linecap="round" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+(semMov?off:C).toFixed(1)+'" transform="rotate(-90 '+cx+' '+cy+')"/>'+
+      '<text x="'+cx+'" y="'+(cy+6)+'" text-anchor="middle" font-size="38" font-weight="800" fill="#0B2E1F">92,7<tspan font-size="20">%</tspan></text>'+
+      '<text x="'+cx+'" y="'+(cy+28)+'" text-anchor="middle" font-size="9.5" font-weight="800" fill="#6B8175" letter-spacing="1">EM FLORESTA PÚBLICA</text></svg>';
+  })();
+
+  function waffle(pct, cor, rotulo){
+    var c = 13, g = 3, S = 10*c + 9*g, cheios = Math.floor(pct), frac = pct - cheios, r = '';
+    for(var i = 0; i < 100; i++){ var col = i % 10, row = 9 - Math.floor(i/10), x = col*(c+g), y = row*(c+g);
+      r += '<rect x="'+x+'" y="'+y+'" width="'+c+'" height="'+c+'" rx="3" fill="'+(i < cheios ? cor : '#E6EEE9')+'"/>';
+      if(i === cheios && frac > 0) r += '<rect x="'+x+'" y="'+y+'" width="'+(c*frac)+'" height="'+c+'" rx="1.5" fill="'+cor+'"/>'; }
+    return '<svg class="viz" viewBox="0 0 '+S+' '+S+'" role="img" aria-label="'+rotulo+'">'+r+'</svg>';
+  }
+  $('waffleFogo').innerHTML = waffle(21, '#C9503F', '21% da área do lavrado queimada em 2023—2024');
+  $('waffleUC').innerHTML = waffle(0.5, '#2E7D4F', '0,5% do lavrado sob unidade de conservação');
+
+  (function(){
+    var W = 320, H = 150, y = function(v){ return H-30-(v/100)*(H-56); }, xa = 74, xb = W-54;
+    var L = Math.hypot(xb-xa, y(75)-y(39));
+    $('ocupacaoBox').innerHTML = '<svg class="viz" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Ocupação do lavrado fora de terras indígenas: 39% em 2008, 75% em 2024">'+
+      [0,50,100].map(function(v){ return '<line x1="36" y1="'+y(v)+'" x2="'+(W-8)+'" y2="'+y(v)+'" stroke="#E6EEE9"/><text x="31" y="'+(y(v)+4)+'" font-size="9.5" fill="#6B8175" text-anchor="end">'+v+'%</text>'; }).join('')+
+      '<path class="linha-anim" d="M'+xa+' '+y(39)+' L'+xb+' '+y(75)+'" stroke="#C9503F" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="'+L.toFixed(1)+'" stroke-dashoffset="'+(semMov?0:L).toFixed(1)+'"/>'+
+      '<circle cx="'+xa+'" cy="'+y(39)+'" r="6" fill="#C9503F" stroke="#fff" stroke-width="2"/><circle cx="'+xb+'" cy="'+y(75)+'" r="6" fill="#C9503F" stroke="#fff" stroke-width="2"/>'+
+      '<text x="'+xa+'" y="'+(y(39)+24)+'" text-anchor="middle" font-size="17" font-weight="800" fill="#0B2E1F">39%</text><text x="'+xa+'" y="'+(y(39)+38)+'" text-anchor="middle" font-size="10.5" font-weight="700" fill="#6B8175">2008</text>'+
+      '<text x="'+xb+'" y="'+(y(75)-22)+'" text-anchor="middle" font-size="17" font-weight="800" fill="#8E2E22">75%</text><text x="'+xb+'" y="'+(y(75)-10)+'" text-anchor="middle" font-size="10.5" font-weight="700" fill="#6B8175">2024</text></svg>';
+  })();
+
+  function barras(box, grupos, max, escala){
+    grupos.forEach(function(gr){
+      if(gr.t) box.appendChild(el('div','grupo',gr.t));
+      gr.itens.forEach(function(it){
+        var w = Math.max(1.2, it[1]/max*escala).toFixed(1)+'%';
+        var d = el('div','barra'+(it[3]?' dest':''),'<span>'+it[0]+'</span><span class="tr" role="img" aria-label="'+it[0]+': '+it[4]+'"><i style="--c:'+it[2]+'"></i><em>'+it[4]+'</em></span>');
+        d.style.setProperty('--w', w); box.appendChild(d);
+      });
+    });
+  }
+  barras($('fpndBox'), [{itens:[['Roraima',92.7,'#D9A53A',1,'92,7%'],['Amazonas',62.4,'#9FB5A8',0,'62,4%'],['Rondônia',58.2,'#9FB5A8',0,'58,2%']]}], 100, 74);
+  barras($('appBox'), [{t:'Faixa de APP', itens:[['Nascente',50,'#2F6FB8',0,'raio de 50 m'],['Rio de até 10 m de largura',30,'#2F6FB8',0,'30 m de cada lado'],['Rio de 50 a 200 m',100,'#2F6FB8',0,'100 m de cada lado'],['Rio acima de 600 m',500,'#173A66',1,'500 m de cada lado']]}], 500, 44);
+  barras($('rlBox'), [{t:'Amazônia Legal · % do imóvel', itens:[['Área de floresta',80,'#D9A53A',1,'80%'],['Área de cerrado',35,'#D9A53A',0,'35%'],['Campos gerais',20,'#D9A53A',0,'20%']]}], 100, 74);
+  barras($('combBox'), [{itens:[['Etanol · ONU 1170',333,'#D9A53A',0,'333 kg'],['Gasolina · ONU 1203',333,'#D9A53A',0,'333 kg'],['Óleo diesel · ONU 1202',1000,'#C9503F',0,'1.000 kg']]}], 1000, 66);
+  barras($('arrecBox'), [{itens:[['2023',219,'#9FB5A8',0,'R$ 219 milhões'],['2024',729,'#D9A53A',1,'R$ 729 milhões']]}], 729, 52);
+  barras($('taxaBox'), [{itens:[['Média histórica',5,'#9FB5A8',0,'5% ao ano'],['2024',15.5,'#D9A53A',1,'15,5%']]}], 15.5, 62);
+
+  /* --- Entrada ao rolar + contagem dos números --- */
+  var io = null, alvos = '.rv,.grafico,.waffles,.painel-tab';
+  function conta(box){
+    box.querySelectorAll('.arco-anim').forEach(function(c){ c.style.strokeDashoffset = c.getAttribute('data-alvo'); });
+    box.querySelectorAll('.linha-anim').forEach(function(p){ p.style.strokeDashoffset = '0'; });
+    if(semMov) return;
+    box.querySelectorAll('[data-conta]').forEach(function(s){
+      if(s.dataset.feito) return; s.dataset.feito = '1';
+      var final = s.textContent, alvo = +s.dataset.conta, dec = +(s.dataset.dec || 0), t0 = performance.now(), dur = 1300;
+      (function f(t){ var k = Math.max(0, Math.min(1, (t - t0) / dur)), e = 1 - Math.pow(1 - k, 3);
+        s.textContent = k < 1 ? nf(alvo * e, dec) : final;
+        if(k < 1) requestAnimationFrame(f); })(t0);
+    });
+  }
+  function liga(r){ r.classList.add('on'); conta(r); }
+  if('IntersectionObserver' in window && !semMov){
+    io = new IntersectionObserver(function(ents){ ents.forEach(function(e){ if(e.isIntersecting){ liga(e.target); io.unobserve(e.target); } }); },{rootMargin:'0px 0px -8% 0px', threshold:.06});
+    document.querySelectorAll(alvos).forEach(function(r){ io.observe(r); });
+  } else { document.querySelectorAll(alvos).forEach(liga); }
+
+  /* --- Progresso + navegação ativa --- */
+  var pf = $('progFill'), tk = false;
+  function rolagem(){ tk = false; var max = doc.scrollHeight - innerHeight; pf.style.width = (max > 0 ? Math.min(1, Math.max(0, scrollY/max)) * 100 : 0)+'%'; }
+  addEventListener('scroll', function(){ if(!tk){ tk = true; requestAnimationFrame(rolagem); } }, {passive:true});
+  addEventListener('resize', rolagem); rolagem();
+  var navLinks = document.querySelectorAll('.nav a');
+  function marcaNav(a){ navLinks.forEach(function(l){ if(l.getAttribute('data-alvo') === a) l.setAttribute('aria-current','true'); else l.removeAttribute('aria-current'); }); }
+  marcaNav('inicio');
+  if('IntersectionObserver' in window){
+    var ion = new IntersectionObserver(function(ents){ ents.forEach(function(e){ if(e.isIntersecting) marcaNav(e.target.getAttribute('data-nav')); }); },{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('[data-nav]').forEach(function(s){ ion.observe(s); });
+  }
+
+  /* --- Roteiro --- */
+  document.querySelectorAll('.etapa').forEach(function(b){
+    function alterna(e){ if(e.target.closest('a')) return; b.setAttribute('aria-expanded', b.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); }
+    b.addEventListener('click', alterna);
+    b.addEventListener('keydown', function(e){ if(e.target !== b) return; if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); alterna(e); } });
+  });
+
+  /* --- Carrosséis --- */
+  document.querySelectorAll('[data-carr]').forEach(function(c){
+    var tr = c.querySelector('.carr-trilho'), itens = tr.children, n = itens.length, ant = c.querySelector('.carr-ant'), prox = c.querySelector('.carr-prox'), pts = c.querySelector('.pontos'), cont = c.querySelector('.carr-cont'), atual = -1;
+    if(pts) for(var i = 0; i < n; i++) pts.appendChild(el('i'));
+    function idx(){ var w = itens[0].getBoundingClientRect().width + 10; return Math.max(0, Math.min(n-1, Math.round(tr.scrollLeft / w))); }
+    function atualiza(){ var i = tr.scrollLeft + tr.clientWidth >= tr.scrollWidth - 4 ? n-1 : idx(); if(i === atual) return; atual = i;
+      if(pts) pts.querySelectorAll('i').forEach(function(p, j){ p.classList.toggle('on', j === i); });
+      if(cont) cont.textContent = (i+1)+' / '+n;
+      ant.disabled = i === 0; prox.disabled = i === n-1; }
+    function vai(i){ i = Math.max(0, Math.min(n-1, i)); tr.scrollTo({left: itens[i].offsetLeft - tr.offsetLeft - 2, behavior: semMov ? 'auto' : 'smooth'}); }
+    ant.addEventListener('click', function(){ vai(atual-1); });
+    prox.addEventListener('click', function(){ vai(atual+1); });
+    tr.addEventListener('scroll', function(){ requestAnimationFrame(atualiza); }, {passive:true});
+    tr.addEventListener('keydown', function(e){ if(e.key === 'ArrowRight'){ e.preventDefault(); vai(atual+1); } else if(e.key === 'ArrowLeft'){ e.preventDefault(); vai(atual-1); } });
+    addEventListener('resize', function(){ atual = -1; atualiza(); });
+    atualiza();
+  });
+
+  /* --- APP × Reserva Legal --- */
+  var tabs = document.querySelectorAll('#app-rl [role="tab"]');
+  tabs.forEach(function(t){ t.addEventListener('click', function(){
+    tabs.forEach(function(x){ var on = x === t; x.setAttribute('aria-selected', on ? 'true' : 'false'); $(x.getAttribute('aria-controls')).hidden = !on; });
+    var p = $(t.getAttribute('aria-controls')); requestAnimationFrame(function(){ p.classList.add('on'); });
+  }); });
+
+  /* --- Compartilhar --- */
+  var toast = $('toast'), tT;
+  function aviso(t){ toast.textContent = t; toast.classList.add('show'); clearTimeout(tT); tT = setTimeout(function(){ toast.classList.remove('show'); }, 2600); }
+  $('share').addEventListener('click', function(){
+    var url = location.href.split('#')[0];
+    var dados = { title:'Guardiões do Lavrado — CIPA Monte Roraima', text:'O que a lei protege, o que estamos perdendo e o que cada um de nós pode fazer — CIPA Monte Roraima / PMRR.', url:url };
+    if(navigator.share){ navigator.share(dados).catch(function(){}); }
+    else if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(function(){ aviso('Link copiado.'); }, function(){ aviso('Copie o link da barra de endereços.'); }); }
+    else { aviso('Copie o link da barra de endereços.'); }
+  });
+
+  /* ===================================================================
+     OFFLINE: Service Worker + instalação na tela inicial
+     =================================================================== */
+  var status = document.querySelectorAll('.js-status'), btnsInst = document.querySelectorAll('.js-instalar');
+  var sheet = $('sheet'), passos = $('passos'), promptInst = null, ultimoFoco = null;
+  var ESSENCIAIS = ['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png','./apple-touch-icon.png','./img/brasao.png','./img/combustivel.jpg','./img/desmate.jpg','./img/dof_blitz.jpg','./img/dof_check.jpg','./img/edu_blitz.jpg','./img/edu_comun.jpg','./img/edu_escola.jpg','./img/equipe.jpg','./img/f_bichopau.jpg','./img/f_cobra.jpg','./img/f_felino.jpg','./img/f_macaco.jpg','./img/f_papagaio.jpg','./img/f_perereca.jpg','./img/f_quelonio.jpg','./img/f_tamandua.jpg','./img/lavrado_agua.jpg','./img/lavrado_bg.jpg','./img/tep_medida.jpg','./img/tep_obra.jpg','./img/toras_eq.jpg'];
+  function mostrarStatus(t, esp){ status.forEach(function(s){ s.textContent = t; s.className = 'status js-status on' + (esp ? ' esperando' : ''); }); }
+  function textoBotoes(t){ btnsInst.forEach(function(b){ b.textContent = t; }); }
+  function abrirSheet(tit, sub, itens){ $('sheet-ttl').textContent = tit; $('sheet-sub').textContent = sub; passos.innerHTML = itens.map(function(t, i){ return '<li><b>'+(i+1)+'</b><span>'+t+'</span></li>'; }).join(''); ultimoFoco = document.activeElement; sheet.classList.add('show'); $('fechar').focus(); }
+  function fecharSheet(){ sheet.classList.remove('show'); if(ultimoFoco && ultimoFoco.focus) ultimoFoco.focus(); }
+  $('fechar').addEventListener('click', fecharSheet);
+  sheet.addEventListener('click', function(e){ if(e.target === sheet) fecharSheet(); });
+  addEventListener('keydown', function(e){ if(e.key === 'Escape' && sheet.classList.contains('show')) fecharSheet(); });
+  var ua = navigator.userAgent;
+  var iOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+  function confereCache(){
+    if(!('caches' in window)) return Promise.resolve(false);
+    return Promise.all(ESSENCIAIS.map(function(u){ return caches.match(new URL(u, location.href).href, {ignoreSearch:true}); })).then(function(r){ return r.every(Boolean); }).catch(function(){ return false; });
+  }
+  function atualizaOffline(){ confereCache().then(function(ok){ if(ok){ mostrarStatus('✔ DISPONÍVEL OFFLINE NESTE APARELHO'); doc.classList.add('salvo'); } else setTimeout(atualizaOffline, 1500); }); }
+  if('serviceWorker' in navigator && location.protocol.indexOf('http') === 0){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('./sw.js', { scope: './' }).then(function(){
+        if(!navigator.serviceWorker.controller) mostrarStatus('⏳ Salvando para uso offline…', true);
+        navigator.serviceWorker.ready.then(atualizaOffline);
+      }).catch(function(){ mostrarStatus('⚠ Não foi possível salvar offline agora', true); });
+    });
+  }
+  window.addEventListener('beforeinstallprompt', function(e){ e.preventDefault(); promptInst = e; textoBotoes('📲 Instalar no celular'); });
+  window.addEventListener('appinstalled', function(){ promptInst = null; textoBotoes('✅ Instalado no celular'); mostrarStatus('✔ Instalado na tela inicial'); });
+  if(standalone) textoBotoes('✅ Instalado no celular');
+  btnsInst.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(standalone){ aviso('Já está instalado neste aparelho.'); return; }
+      if(promptInst){
+        var p = promptInst; promptInst = null;
+        Promise.resolve().then(function(){ return p.prompt(); }).then(function(){ return p.userChoice; })
+          .then(function(r){ if(r && r.outcome !== 'accepted') aviso('Você pode instalar depois por aqui.'); })
+          .catch(function(){ promptInst = p; });
+        return;
+      }
+      if(iOS){ abrirSheet('Salvar no iPhone', 'No Safari:', ['Toque em <strong>Compartilhar</strong> ⬆️','Toque em <strong>“Adicionar à Tela de Início”</strong>','Toque em <strong>Adicionar</strong> para confirmar']); return; }
+      abrirSheet('Salvar no celular', 'Pelo menu do navegador:', ['Toque no menu <strong>⋮</strong>','Escolha <strong>Instalar aplicativo</strong> ou <strong>Adicionar à tela inicial</strong>','Confirme em <strong>Instalar</strong>']);
+    });
+  });
+})();
+</script>
+</body>
+</html>
